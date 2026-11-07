@@ -1,0 +1,311 @@
+How to get expert-level output from me
+Treat me like a senior systems engineer, not a code autocomplete. When you want high-quality architecture + code:
+
+State the real constraints
+Model (qwen2.5:7b local), must run offline, latency tolerance, reliability needs, whether you need persistence/checkpoints, human approval points, etc.
+
+Define success criteria
+What does “good” look like? (e.g., “plan must be approved before content is generated”, “all agents must return structured data”, “system must be restartable”, “easy to add a new agent later”).
+
+Ask for the architecture first, then the code
+Say: “Design the system (state, nodes, edges, failure modes, trade-offs), then implement it.”
+
+Give the domain context
+This is a social media growth / lead-gen pipeline. The agents have different cognitive loads (research vs. creative strategy vs. structured planning). That matters for model choice, prompts, and whether they should be sequential or dynamically routed.
+
+With that framing, I produce systems instead of scripts.
+
+Expert architecture for your use case
+Your original flow is mostly sequential with one hard gate (research → plan approval → content + leads + engagement).
+
+This is a classic case for an explicit LangGraph workflow (not a free-form supervisor). Reasons:
+
+Predictable control flow (better with small local models)
+Clear shared state
+Easy to insert human approval or retries
+Easy to observe and debug
+Lower token waste than a supervisor that re-decides every step
+Recommended structure:
+
+START
+  → investigador
+  → planificador
+  → [conditional] if plan approved → contenido
+                              → leads
+                              → engagement
+                              → synthesizer
+                        else → END (with rejection reason)
+
+Shared state holds the accumulating artifacts. Each node returns structured data. The graph is checkpointed so you can resume.
+
+- Why this is expert-level (vs. the original)
+- Explicit shared state instead of passing loose dicts between methods.
+- Structured outputs with Pydantic → the model is forced to return valid, typed data. This is the single biggest  reliability improvement with small models.
+- LangGraph gives you conditional routing, checkpoints, and observability for free.
+- Separation of concerns: each node is a pure function. Easy to test, swap models, or add tools later.
+- Temperature per agent (research low, creative higher).
+- Checkpointing so you can resume or inspect intermediate state.
+- Clear failure path when the plan is not approved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here’s a clean expert design that matches what you described.
+
+Design goals (from your requirements)
+Full social media growth plan + content ideas.
+Human approval of the plan before the system continues.
+Runs locally with Ollama today; easy to switch models or add web search later.
+Easy to add more agents.
+Reliability and clear structured outputs over clever multi-agent complexity.
+Architecture decisions
+Concern	Decision	Why
+Orchestration	LangGraph with explicit nodes	Predictable, easy to interrupt for approval, easy to extend
+Outputs	Pydantic structured outputs on every node	Reliability + clear contracts between steps
+Human approval	Interrupt after the planner	System pauses, you review the plan, then resume or stop
+LLM	Injected factory	Swap Ollama model (or another local LLM) in one place
+Extensibility	Nodes are independent functions	Add a new agent = add one node + one edge
+State	Explicit shared state	Everything is visible and typed
+Complexity	Sequential with one gate	Matches the real workflow; no unnecessary supervisor
+Flow
+START
+  → investigador
+  → planificador
+  → [INTERRUPT]  ← you review the plan here
+  → (if approved) contenido → leads → engagement → END
+  → (if rejected) END
+Implementation
+python
+from typing import TypedDict, Literal, Optional
+from pydantic import BaseModel, Field
+from langchain_ollama import ChatOllama
+from langchain_core.messages import HumanMessage
+from langgraph.graph import StateGraph, START, END
+from langgraph.checkpoint.memory import MemorySaver
+from langgraph.types import interrupt
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# ──────────────────────────────────────────────
+# 1. Structured outputs (reliability)
+# ──────────────────────────────────────────────
+class Investigacion(BaseModel):
+    resumen: str
+    insights_clave: list[str]
+    oportunidades: list[str]
+
+class Plan(BaseModel):
+    aprobado_por_modelo: bool
+    razon: str
+    plan_detallado: str
+    pilares: list[str]
+    tacticas: list[str]
+    metricas: list[str]
+
+class Contenido(BaseModel):
+    ideas: list[str]
+    formatos: list[str]
+    hooks: list[str]
+
+class Leads(BaseModel):
+    estrategia: str
+    canales: list[str]
+    lead_magnets: list[str]
+
+class Engagement(BaseModel):
+    ideas: list[str]
+    tipos_interactivos: list[str]
+
+# ──────────────────────────────────────────────
+# 2. Shared state
+# ──────────────────────────────────────────────
+class State(TypedDict):
+    tema: str
+    objetivo: str
+    investigacion: Optional[dict]
+    plan: Optional[dict]
+    humano_aprobo: bool
+    contenido: Optional[dict]
+    leads: Optional[dict]
+    engagement: Optional[dict]
+
+# ──────────────────────────────────────────────
+# 3. LLM factory (easy to swap later)
+# ──────────────────────────────────────────────
+def get_llm(model: str = "qwen2.5:7b", temperature: float = 0.3):
+    return ChatOllama(
+        model=model,
+        temperature=temperature,
+        num_ctx=8192,
+        num_predict=1024,
+    )
+
+# ──────────────────────────────────────────────
+# 4. Nodes
+# ──────────────────────────────────────────────
+def investigador(state: State) -> dict:
+    logger.info("Investigador")
+    llm = get_llm(temperature=0.2)
+    structured = llm.with_structured_output(Investigacion)
+    result = structured.invoke(
+        f"Investiga tácticas de crecimiento y leads en TikTok e Instagram.\n"
+        f"Tema: {state['tema']}\nObjetivo: {state['objetivo']}"
+    )
+    return {"investigacion": result.model_dump()}
+
+def planificador(state: State) -> dict:
+    logger.info("Planificador")
+    llm = get_llm(temperature=0.1)
+    structured = llm.with_structured_output(Plan)
+    inv = state.get("investigacion") or {}
+    result = structured.invoke(
+        f"Crea un plan de crecimiento en redes sociales.\n"
+        f"Investigación: {inv}\nObjetivo: {state['objetivo']}\n"
+        f"Sé crítico con la aprobación."
+    )
+    return {"plan": result.model_dump()}
+
+def human_approval(state: State) -> dict:
+    """Pauses the graph so a human can approve or reject the plan."""
+    plan = state.get("plan", {})
+    print("\n" + "="*60)
+    print("PLAN GENERADO — REVISIÓN HUMANA")
+    print("="*60)
+    print(plan.get("plan_detallado", "No plan"))
+    print("\nPilares:", plan.get("pilares"))
+    print("Tácticas:", plan.get("tacticas"))
+    print("="*60)
+
+    # This pauses execution until you resume the graph
+    decision = interrupt(
+        "¿Aprobar este plan? Responde 'si' o 'no' al reanudar."
+    )
+    approved = str(decision).strip().lower() in ("si", "sí", "yes", "y", "approve")
+    logger.info(f"Human decision: {approved}")
+    return {"humano_aprobo": approved}
+
+def contenido(state: State) -> dict:
+    logger.info("Contenido")
+    llm = get_llm(temperature=0.7)
+    structured = llm.with_structured_output(Contenido)
+    result = structured.invoke(
+        f"Tema: {state['tema']}\nPlan: {state.get('plan')}\n"
+        f"Genera ideas de contenido concretas."
+    )
+    return {"contenido": result.model_dump()}
+
+def leads(state: State) -> dict:
+    logger.info("Leads")
+    llm = get_llm(temperature=0.4)
+    structured = llm.with_structured_output(Leads)
+    result = structured.invoke(
+        f"Tema: {state['tema']}\nPlan: {state.get('plan')}\n"
+        f"Diseña estrategia de generación de leads."
+    )
+    return {"leads": result.model_dump()}
+
+def engagement(state: State) -> dict:
+    logger.info("Engagement")
+    llm = get_llm(temperature=0.6)
+    structured = llm.with_structured_output(Engagement)
+    result = structured.invoke(
+        f"Tema: {state['tema']}\nGenera ideas de engagement."
+    )
+    return {"engagement": result.model_dump()}
+
+# ──────────────────────────────────────────────
+# 5. Routing
+# ──────────────────────────────────────────────
+def route_after_approval(state: State) -> Literal["contenido", END]:
+    if state.get("humano_aprobo"):
+        return "contenido"
+    return END
+
+# ──────────────────────────────────────────────
+# 6. Build graph
+# ──────────────────────────────────────────────
+def build_graph():
+    builder = StateGraph(State)
+
+    builder.add_node("investigador", investigador)
+    builder.add_node("planificador", planificador)
+    builder.add_node("human_approval", human_approval)
+    builder.add_node("contenido", contenido)
+    builder.add_node("leads", leads)
+    builder.add_node("engagement", engagement)
+
+    builder.add_edge(START, "investigador")
+    builder.add_edge("investigador", "planificador")
+    builder.add_edge("planificador", "human_approval")
+    builder.add_conditional_edges("human_approval", route_after_approval)
+    builder.add_edge("contenido", "leads")
+    builder.add_edge("leads", "engagement")
+    builder.add_edge("engagement", END)
+
+    checkpointer = MemorySaver()
+    return builder.compile(checkpointer=checkpointer)
+
+# ──────────────────────────────────────────────
+# 7. Usage
+# ──────────────────────────────────────────────
+def run(tema: str, objetivo: str, thread_id: str = "run-1"):
+    graph = build_graph()
+    config = {"configurable": {"thread_id": thread_id}}
+
+    initial = {
+        "tema": tema,
+        "objetivo": objetivo,
+        "investigacion": None,
+        "plan": None,
+        "humano_aprobo": False,
+        "contenido": None,
+        "leads": None,
+        "engagement": None,
+    }
+
+    # First invocation runs until the interrupt
+    result = graph.invoke(initial, config)
+
+    # If it paused for approval, resume with the human decision
+    if result.get("__interrupt__"):
+        decision = input("\n¿Aprobar el plan? (si/no): ")
+        result = graph.invoke(decision, config)
+
+    return result
+
+if __name__ == "__main__":
+    final = run(
+        tema="Tácticas de engagement y crecimiento en TikTok e Instagram para generar leads",
+        objetivo="Crecer en redes sociales para obtener leads y clientes potenciales",
+    )
+    print("\n=== RESULTADO FINAL ===")
+    print(final)
+Why this fits your requirements
+Human approval: the graph pauses after the plan. You review it and decide whether to continue.
+Local + swappable LLM: change the model name in get_llm(). Later you can replace ChatOllama with another local provider without touching the nodes.
+Easy to add agents: add a new function, add a node, add an edge. No other changes required.
+Reliability: every step returns a validated Pydantic object. No free-form dict guessing.
+Clear outputs: the final state contains cleanly structured investigacion, plan, contenido, leads, and engagement.
+Ready for web search: you can later give the investigador node tools (or turn it into a small ReAct agent) without redesigning the graph.
+Assumptions I made
+The approval is interactive in the terminal for now (easy to move to a UI or API later).
+MemorySaver is fine for local development (swap to SQLite/Postgres when you want persistence across restarts).
+The plan is generated once; you either approve and continue or stop. We can add a “revise plan” loop if you want it later.
+Want me to add any of these next?
+
+A “revise plan” loop if you reject it
+Web search tool on the investigador
+Parallel execution of contenido / leads / engagement after approval
+Cleaner package structure (separate files)

@@ -1,0 +1,6 @@
+08:00 → scheduler despierta
+     → downloader busca VOD de ayer/hoy
+     → editor detecta 5 momentos de alto audio
+     → corta 5 clips de 60s
+     → postear.py los mete en cola
+     → TUS agentes los toman y los postean   

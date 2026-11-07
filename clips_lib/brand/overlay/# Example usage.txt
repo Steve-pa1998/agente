@@ -1,0 +1,5 @@
+# Example usage
+user_id = 123
+amount = 100.00
+result = withdraw_revenue(user_id, amount)
+print(result)

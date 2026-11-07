@@ -1,0 +1,16 @@
+mi_agente/
+├── clips/
+│   ├── downloader.py    # descarga VOD
+│   ├── editor.py        # corta clips
+│   ├── scheduler.py     # lo corre todos los días
+│   └── postear.py       # dispara a tus agentes
+├── clips_output/        # donde caen los clips
+└── main.py   
+
+agente/
+├── clips_scheduler.py
+└── clips/
+    ├── __init__.py      ← SIN ESTO NO IMPORTA
+    ├── downloader.py
+    ├── editor.py
+    └── postear.py   

@@ -1,0 +1,61 @@
+import ollama
+from llama_index.core import StorageContext, load_index_from_storage
+from llama_index.llms.ollama import Ollama
+
+storage_context = StorageContext.from_defaults(
+    persist_dir="C:/Users/Steve/Desktop/folder de ollama run llama3/index_storage"
+)
+rag_index = load_index_from_storage(storage_context)
+rag_engine = rag_index.as_query_engine(llm=Ollama(model="llama3"))   
+AGENTES = {
+    "1": {
+        "nombre": "Copiloto de Código",
+        "prompt": "Eres un desarrollador Python senior. Escribes código limpio, comentado y optimizado. Cuando el usuario te da una tarea de automatización, entregas el script completo listo para ejecutar. Usa best practices: type hints, docstrings, manejo de errores."
+    },
+    "2": {
+        "nombre": "Redactor de Propuestas",
+        "prompt": "Eres un freelance experto en automatización con Python. El usuario te pega la descripción de un trabajo de una plataforma (Fiverr, Workana, etc.) y tú redactas una propuesta corta, profesional y persuasiva en español. Máximo 10 líneas. Incluye: qué harás, en cuánto tiempo, y por qué eres la persona indicada. Tono: directo, sin humo."
+    },
+    "3": {
+        "nombre": "Documentador",
+        "prompt": "Eres un técnico en documentación de software. El usuario te pega código Python y tú generas: 1) un README.md con instrucciones de uso, 2) comentarios inline si faltan, 3) un ejemplo de uso. Formato markdown."
+    },
+    "4": {
+        "nombre": "Investigador (RAG)",
+        "prompt": "Responde SOLO basándote en los documentos indexados. Si no está en los documentos, di 'no lo tengo'."
+}   
+
+def main():
+    print("=== EQUIPO DE AGENTES ===")
+    for k, v in AGENTES.items():
+        print(f"  {k}. {v['nombre']}")
+    print("  0. Salir")
+
+    while True:
+        print()
+        sel = input("Elige agente: ").strip()
+        if sel == "0":
+            break
+        if sel not in AGENTES:
+            print("Opción inválida.")
+            continue
+
+        agente = AGENTES[sel]
+        print(f"\n--- {agente['nombre']} (escribe 'salir' para cambiar) ---")
+
+        mensajes = [{"role": "system", "content": agente["prompt"]}]
+
+        while True:
+            user = input("\nTú: ").strip()
+            if user.lower() in ("salir", "quit", "q"):
+                break
+            mensajes.append({"role": "user", "content": user})
+            if sel == "4":
+    resp = rag_engine.query(user)
+    print(f"\nInvestigador (RAG): {resp}")
+else:
+    resp = ollama.chat(model="llama3", messages=mensajes)
+    print(f"\n{agente['nombre']}: {resp['message']['content']}")
+    mensajes.append({"role": "assistant", "content": resp['message']['content']})   
+if __name__ == "__main__":
+    main()   

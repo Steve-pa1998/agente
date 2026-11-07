@@ -1,0 +1,9 @@
+{
+  "tareas": [
+    {"id": 1, "tipo": "encuesta", "nombre": "YSense - Rápidas (S)", "dur_est_min": 5, "dificultad": 1, "pts_esperados": 50, "url": "https://www.ysense.com/es/mx/encuestas", "estado": "disponible", "fecha_agregada": "2026-10-26T00:00:00"},
+    {"id": 2, "tipo": "encuesta", "nombre": "Toluna - Normales (A)", "dur_est_min": 10, "dificultad": 2, "pts_esperados": 120, "url": "https://www.toluna.com/es-mx/surveys", "estado": "disponible", "fecha_agregada": "2026-10-26T00:00:00"},
+    {"id": 3, "tipo": "fiverr", "nombre": "Postular a 3 jales de scraping", "dur_est_min": 20, "dificultad": 3, "pts_esperados": 500, "url": "https://www.fiverr.com", "estado": "disponible", "fecha_agregada": "2026-10-26T00:00:00"},
+    {"id": 4, "tipo": "apify", "nombre": "Subir Actor de scraper", "dur_est_min": 15, "dificultad": 3, "pts_esperados": 300, "url": "https://apify.com", "estado": "disponible", "fecha_agregada": "2026-10-26T00:00:00"},
+    {"id": 5, "tipo": "traduccion", "nombre": "Traducir 1 documento (ejercicio)", "dur_est_min": 30, "dificultad": 3, "pts_esperados": 400, "url": "", "estado": "disponible", "fecha_agregada": "2026-10-26T00:00:00"}
+  ]
+}   

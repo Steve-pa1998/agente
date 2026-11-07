@@ -1,0 +1,3 @@
+reponse.choices[0].message.content
+
+respuesta. Opciones[0].mensaje. Contexto 

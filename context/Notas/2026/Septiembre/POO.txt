@@ -1,0 +1,24 @@
+La Programción Oriendtada a Objetos (POO) es un paradigma de programación que organiza el diseño de software alrededor de objetos y datos en lugar de funciones y lógica pura.
+
+CONCEPTOS CLAVE 
+
+Clase: Una plantilla o molde que define los atributos y los métodos comunes para crear objetos. 
+
+Objeto: Una instancia concreta de una define los atributos y los métodos comunes para crear objetos.
+
+Atributo: Las características o variables que almacenan el estado de un objeto. 
+
+Método: Las funciones o acciones que el objeto puede realizar. 
+
+
+LOS CUATRO PILLARES 
+
+Encapsulamiento: Oculta los detalles internos del estado de un objeto para proteger los datos.  
+
+Herencia: Permite que una clase nueva reciba atributos métodos de otra clase existente.
+
+Polimorfismo: Permite que un mismo método actúe de formas distintas según el objeto que lo invoque. 
+
+Abstracción: Modela solamente las características esenciales de un objeto ignorando detalles complejos. 
+
+ 

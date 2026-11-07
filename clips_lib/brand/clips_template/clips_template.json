@@ -1,0 +1,22 @@
+{
+  "canvas": { "width": 1080, "height": 1920 },
+  "safe_zones": {
+    "top": 150,
+    "bottom": 340,
+    "left": 60,
+    "right": 60
+  },
+  "background": "template_1080x1920.png",
+  "logo": {
+    "file": "../logo/logo_56.png",
+    "x": 60,
+    "y": 1850,
+    "width": 56,
+    "height": 56,
+    "opacity": 0.7
+  },
+  "subtitle": "subtitle_style.json",
+  "fps": 30,
+  "codec": "libx264",
+  "crf": 23
+}   

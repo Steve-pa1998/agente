@@ -1,0 +1,466 @@
+Langchain LLM with ollama or idk investigate what these are i think they are either tools or functions, data types
+
+PS C:\Users\Steve\Desktop> pip install -U langgraph langchain langchain-ollama
+Collecting langgraph
+  Downloading langgraph-1.2.14-py3-none-any.whl.metadata (4.9 kB)
+Collecting langchain
+  Downloading langchain-1.4.4-py3-none-any.whl.metadata (6.2 kB)
+Collecting langchain-ollama
+  Downloading langchain_ollama-1.1.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting langchain-core<2,>=1.4.7 (from langgraph)
+  Downloading langchain_core-1.6.9-py3-none-any.whl.metadata (4.8 kB)
+Collecting langgraph-checkpoint<5.0.0,>=4.1.0 (from langgraph)
+  Downloading langgraph_checkpoint-4.2.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph)
+  Downloading langgraph_prebuilt-1.1.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph)
+  Downloading langgraph_sdk-0.4.6-py3-none-any.whl.metadata (5.1 kB)
+Collecting pydantic>=2.7.4 (from langgraph)
+  Downloading pydantic-2.14.0-py3-none-any.whl.metadata (131 kB)
+Collecting xxhash>=3.5.0 (from langgraph)
+  Downloading xxhash-4.0.1-cp314-cp314-win_amd64.whl.metadata (18 kB)
+Collecting httpx<1.0.0,>=0.23.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting jsonpatch<2.0.0,>=1.33.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading jsonpatch-1.35-py3-none-any.whl.metadata (3.7 kB)
+Collecting langchain-protocol>=0.0.17 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading langchain_protocol-0.0.19-py3-none-any.whl.metadata (2.4 kB)
+Collecting langsmith<1.0.0,>=0.3.45 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading langsmith-0.14.7-py3-none-any.whl.metadata (22 kB)
+Collecting packaging>=23.2.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml<7.0.0,>=5.3.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl.metadata (2.4 kB)
+Collecting tenacity!=8.4.0,<10.0.0,>=8.1.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting typing-extensions<5.0.0,>=4.7.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting uuid-utils<1.0,>=0.12.0 (from langchain-core<2,>=1.4.7->langgraph)
+  Downloading uuid_utils-0.17.1-cp314-cp314-win_amd64.whl.metadata (6.5 kB)
+Collecting anyio (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph)
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph)
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph)
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph)
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting jsonpointer>=3.2 (from jsonpatch<2.0.0,>=1.33.0->langchain-core<2,>=1.4.7->langgraph)
+  Downloading jsonpointer-3.2.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.1.0->langgraph)
+  Downloading ormsgpack-1.12.2-cp314-cp314-win_amd64.whl.metadata (3.3 kB)
+Collecting orjson>=3.11.5 (from langgraph-sdk<0.5.0,>=0.4.6->langgraph)
+  Downloading orjson-3.13.0-cp314-cp314-win_amd64.whl.metadata (43 kB)
+Collecting websockets<17,>=14 (from langgraph-sdk<0.5.0,>=0.4.6->langgraph)
+  Downloading websockets-16.1.1-cp314-cp314-win_amd64.whl.metadata (7.0 kB)
+Collecting distro>=1.7.0 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting httpx2<3,>=2 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading httpx2-2.13.1-py3-none-any.whl.metadata (9.8 kB)
+Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting requests>=2.0.0 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting sniffio>=1.1 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading zstandard-0.25.0-cp314-cp314-win_amd64.whl.metadata (3.3 kB)
+Collecting httpcore2==2.13.1 (from httpx2<3,>=2->langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading httpcore2-2.13.1-py3-none-any.whl.metadata (26 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2->langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
+Collecting annotated-types>=0.6.0 (from pydantic>=2.7.4->langgraph)
+  Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.0 (from pydantic>=2.7.4->langgraph)
+  Downloading pydantic_core-2.50.0-cp314-cp314-win_amd64.whl.metadata (6.7 kB)
+Collecting typing-inspection>=0.4.4 (from pydantic>=2.7.4->langgraph)
+  Using cached typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting ollama<1.0.0,>=0.6.1 (from langchain-ollama)
+  Downloading ollama-0.6.3-py3-none-any.whl.metadata (7.6 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.0.0->langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading charset_normalizer-3.5.2-cp314-cp314-win_amd64.whl.metadata (47 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.0.0->langsmith<1.0.0,>=0.3.45->langchain-core<2,>=1.4.7->langgraph)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Downloading langgraph-1.2.14-py3-none-any.whl (255 kB)
+Downloading langchain_core-1.6.9-py3-none-any.whl (572 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 573.0/573.0 kB 17.8 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading jsonpatch-1.35-py3-none-any.whl (17 kB)
+Downloading langgraph_checkpoint-4.2.0-py3-none-any.whl (56 kB)
+Downloading langgraph_prebuilt-1.1.0-py3-none-any.whl (41 kB)
+Downloading langgraph_sdk-0.4.6-py3-none-any.whl (162 kB)
+Downloading langsmith-0.14.7-py3-none-any.whl (861 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 862.0/862.0 kB 22.3 MB/s  0:00:00
+Downloading httpx2-2.13.1-py3-none-any.whl (95 kB)
+Downloading httpcore2-2.13.1-py3-none-any.whl (83 kB)
+Downloading pydantic-2.14.0-py3-none-any.whl (487 kB)
+Downloading pydantic_core-2.50.0-cp314-cp314-win_amd64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 24.7 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl (156 kB)
+Downloading tenacity-9.2.1-py3-none-any.whl (32 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading uuid_utils-0.17.1-cp314-cp314-win_amd64.whl (177 kB)
+Downloading websockets-16.1.1-cp314-cp314-win_amd64.whl (179 kB)
+Downloading langchain-1.4.4-py3-none-any.whl (165 kB)
+Downloading langchain_ollama-1.1.0-py3-none-any.whl (31 kB)
+Downloading ollama-0.6.3-py3-none-any.whl (16 kB)
+Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading jsonpointer-3.2.1-py3-none-any.whl (8.3 kB)
+Downloading langchain_protocol-0.0.19-py3-none-any.whl (7.3 kB)
+Downloading orjson-3.13.0-cp314-cp314-win_amd64.whl (121 kB)
+Downloading ormsgpack-1.12.2-cp314-cp314-win_amd64.whl (117 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.2-cp314-cp314-win_amd64.whl (210 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading truststore-0.10.4-py3-none-any.whl (18 kB)
+Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading xxhash-4.0.1-cp314-cp314-win_amd64.whl (37 kB)
+Downloading zstandard-0.25.0-cp314-cp314-win_amd64.whl (516 kB)
+Installing collected packages: zstandard, xxhash, websockets, uuid-utils, urllib3, typing-extensions, truststore, tenacity, sniffio, pyyaml, packaging, ormsgpack, orjson, jsonpointer, idna, h11, distro, charset_normalizer, certifi, annotated-types, typing-inspection, requests, pydantic-core, langchain-protocol, jsonpatch, httpcore2, httpcore, anyio, requests-toolbelt, pydantic, httpx2, httpx, ollama, langsmith, langchain-core, langgraph-sdk, langgraph-checkpoint, langchain-ollama, langgraph-prebuilt, langgraph, langchain
+   ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  2/41 [websockets]  WARNING: The script websockets.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+   ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12/41 [orjson]  WARNING: The script idna.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script distro.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+   ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 17/41 [charset_normalizer]  WARNING: The script normalizer.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+   ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 22/41 [pydantic-core]  WARNING: The scripts jsondiff.exe and jsonpatch.exe are installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ 30/41 [httpx2]  WARNING: The script httpx2.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script httpx.exe is installed in 'C:\Users\Steve\AppData\Local\Python\pythoncore-3.14-64\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed annotated-types-0.8.0 anyio-4.15.1 certifi-2026.7.22 charset_normalizer-3.5.2 distro-1.9.0 h11-0.16.0 httpcore-1.0.9 httpcore2-2.13.1 httpx-0.28.1 httpx2-2.13.1 idna-3.20 jsonpatch-1.35 jsonpointer-3.2.1 langchain-1.4.4 langchain-core-1.6.9 langchain-ollama-1.1.0 langchain-protocol-0.0.19 langgraph-1.2.14 langgraph-checkpoint-4.2.0 langgraph-prebuilt-1.1.0 langgraph-sdk-0.4.6 langsmith-0.14.7 ollama-0.6.3 orjson-3.13.0 ormsgpack-1.12.2 packaging-26.3 pydantic-2.14.0 pydantic-core-2.50.0 pyyaml-6.0.3 requests-2.34.2 requests-toolbelt-1.0.0 sniffio-1.3.1 tenacity-9.2.1 truststore-0.10.4 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uuid-utils-0.17.1 websockets-16.1.1 xxhash-4.0.1 zstandard-0.25.0
+
+
+
+
+
+# Ejemplo para buscar la combinación de un símbolo en el script
+def buscar_atajo(nombre_simbolo):
+    simbolo = simbolos_codigo_extra.get(nombre_simbolo)
+    if simbolo:
+        return f"El símbolo '{simbolo['caracter']}' sirve para: {simbolo['descripcion']}. Se escribe con: {simbolo['combinacion']}"
+    return "Símbolo no encontrado."
+
+print(buscar_atajo("pipe_barra_vertical"))
+
+
+// Ejemplo de uso para imprimir un atajo en consola
+console.log(`Para escribir ${atajosTecladoCodigo.barraInvertida.caracter} usa: ${atajosTecladoCodigo.barraInvertida.espanayLatam}`);
+
+
+{  
+
+(Llave abierta)
+ 
+}
+
+(Llave cerrada)
+
+[
+
+(Corchete abierto)
+
+]
+
+(Corchete cerrado)
+
+~ 
+
+(Virgulilla)
+
+\
+
+(Barra Invertida)
+
+@
+
+(Arroba)
+
+#
+
+(Almohadilla)
+
+¬
+
+(Negación lógica)
+
+/|° 
+
+
+10 Tips for Writing System Prompts When AI Coding 
+
+System prompt: text that gets prepended to every task you run it gives your aGENT EXTRA  context whoe you are how you like to code what level of explanation you want and how you want you´re Project structered 
+
+Think of it like a "developer profile" that Sculpter uses behind the scenes every time you ask it to do something. 
+
+
+Start with something like 
+
+i´m a guy that would like to be a junior software engineer looking for a job or how to make a system of my own to make money, could you write high quality code but explain it like if i was a junior developer
+
+Next clarify if your doing a quick prototype, or a production ready build. If you´re prototypeing, you can say:
+
+Optimize for simplecity and speed of implementation. skip the tests and focus more on getting a working MVP 
+
+If you´re productionizing, you can say: 
+
+Write production grade code with full test coverage , robust error handling, and slean seperation of concerns.
+
+This Will help Sculpter decide to scaffold out a quick demo or a fully stucterd Project. 
+
+Next, add guidelines around how you want the code stucterd for example you can say 
+
+Componentize UI elements wherever posible, Add to-do comments for unfinshed features, Document features with sconcise explanation, above each defination, follow clean code principles and consistent naming conventions. 
+  
+And the more you define your code filosfy the more Sculptor Will match your team´s actual style.
+
+Next, sometimes have your goals have trade off´s for example speed verus memory usage. 
+
+You can clarify, proiritize execution speed even if implemaentation is more complex or optimize for minimal storage usage even if it slightly increases runtime.  
+
+These cues help agents make consistent design choices across prompts. If you primarly use a certain tech stack like Nex.js, Js, Tailwind, Superbase or Prisma, you should mention it. For example, all front-end components should use React with TypeScript and Tailwind CSS or som,ethinglike use Superbase for suthentication and database operations.
+
+Next if you care about UI details, include guidelines like follow a minimal. clean design asethetic with consistent spacing and responsive layouts.
+
+This Will help the agent keep visual consistency when building front-end features.
+
+You can even shape how the AI talks back to you. So for example, explain your reasing step by step in plain language or keep responses concise, no more  than 10 lines unless asked.
+
+Next is error handling. Many developers always forget to include this, but you can: say: 
+
+always handle Edge cases gracefully and provide feedback values or include defensive programming checks for null, undefined, or unexected date. It may seem obvious to a human but somtiems you need to state the obvious to the AI agent, or it won´t do it consistently. This pushes the agent towards writing more resilient and production safe code. If you´re working in a shared production level codebase, you can instruct the AI agent to generate a small test suite for any new component op API endpoint or include console logs and temporary debug output to vaildate behavior.
+
+I use the second line a lot and it really saves me a lot of time. And lastly, give your tool rules for what not to do as well. This is more useful than you think it is for example
+
+Never expose API keys or secrets or alweys ask for clarification before making destructive changes or default to creating new files rather than modifying existing ones without confirmation.
+
+These rules can help prevent big mistakes when you´re working on a large codebase. So these are 10 examples of what to include in
+
+
+
+
+Componatize for 
+
+
+**`#`** is the **comment** character in Python. Everything after it on a line is ignored by the interpreter — it's just a note for humans reading the code.
+
+```python
+x = 10  # this is a comment, Python ignores it
+print(x)  # prints 10
+```
+
+Use it to explain *why* you did something, not *what* (the code already shows *what*):
+
+```python
+# Convert to int because input() always returns a string
+age = int(input("Age: "))
+```
+
+You can also comment out a line of code temporarily (to "disable" it without deleting it):
+
+```python
+# print("debug: x =", x)
+```
+PYTHON 
+
+SYNTAX ERROR: It's a Python error that means the interpreter encountered code that violates Python's grammar rules — it literally cannot parse/understand what you wrote.  It's raised during parsing, before execution begins.
+
+Common causes:
+
+
+Missing colon : after if, for, while, def, etc.
+
+
+Unmatched parentheses (), brackets [], braces {}, or quotes
+
+
+Misspelled or misused keywords (e.g., using class as a variable name)
+Incorrect indentation
+
+
+Missing or extra symbols (e.g., using = instead of == in a condition) 
+
+
+Tip: The line Python points to isn't always where the actual mistake is — often the real problem is on the previous line (e.g., an unclosed parenthesis). Always check the line above the reported error. 
+
+
+
+
+
+This error means you have a mismatched pair of brackets in your code.  Specifically, the opening symbol is a parenthesis (, but the code expects it to be closed by another parenthesis ).  Instead, it encountered a curly brace }. 
+
+To fix this:
+
+Check Line 56: Look for an opening ( that might be incorrectly closed with a }. 
+Look Upward: The error often points to the closing mismatch, but the actual problem is the opening bracket on an earlier line (possibly before line 56) that was never properly closed. 
+Verify Structure: Ensure that every ( has a matching ) and every { has a matching }. For example, x = (1, 2} is invalid because the ( requires a ), not a }. 
+Example of the error:
+
+x = (1, 2, 3}  # SyntaxError: closing parenthesis '}' does not match opening parenthesis '('
+
+The fix:
+
+x = (1, 2, 3)  # Correct: parenthesis matches parenthesis
+# OR
+x = {1, 2, 3}  # Correct: curly brace matches curly brace
+
+
+
+
+Python 3 has 35 keywords:
+
+False, None, True, and, as, assert, async, await, break, class,
+continue, def, del, elif, else, except, finally, for, from, global,
+if, import, in, is, lambda, nonlocal, not, or, pass, raise, return,
+try, while, with, yield
+
+
+They fall into a few categories:
+
+Category	Examples
+Conditionals	if, elif, else
+Loops	for, while, break, continue
+Functions/Classes	def, class, return, lambda, yield
+Exception handling	try, except, finally, raise
+Boolean / logic	and, or, not, True, False, None
+Importing	import, from, as
+Scope	global, nonlocal
+Async	async, await
+Other	pass, del, with, assert, is, in
+
+
+A class is a blueprint for creating objects. It bundles data (attributes) and behavior (methods) together.
+
+class Dog:
+    # Class-level attribute (shared by all instances)
+    species = "Canis familiaris"
+
+    # Constructor (called when you create an instance)
+    def __init__(self, name, age):
+        self.name = name      # instance attribute
+        self.age = age
+
+    # Method (behavior)
+    def bark(self):
+        return f"{self.name} says woof!"
+
+    def info(self):
+        return f"{self.name}, {self.age} years old"
+
+Key parts:
+Part	Meaning
+class Dog:	Declares a new type called Dog
+__init__	The constructor — runs automatically when you create an instance
+self	Refers to the specific instance (the object being created)
+self.name	An instance attribute — unique to each object
+Dog.species	A class attribute — shared across all instances
+def bark(self)	A method — a function that belongs to the class
+
+Creating an object:
+rex = Dog("Rex", 3)
+print(rex.bark())    # "Rex says woof!"
+print(rex.info())    # "Rex, 3 years old"
+print(rex.species)   # "Canis familiaris"
+
+Why use classes?
+Organization — group related data + behavior
+Reusability — create many objects from one blueprint
+Encapsulation — hide internal details, expose a clean interface
+Inheritance — create new classes that extend existing ones
+class Puppy(Dog):          # inherits from Dog
+    def __init__(self, name):
+        super().__init__(name, age=0)  # call parent constructor
+
+
+1. Variables & Data Types
+Variables are labels for values. No type declaration needed — Python figures it out:
+
+name = "Alex"        # str (text)
+age = 25             # int (whole number)
+height = 1.75        # float (decimal)
+is_student = True    # bool (True/False)
+
+2. Input & Output
+print("Hello, World!")          # output
+name = input("What's your name?")  # input (always returns a string)
+age = int(input("Age: "))       # convert to number
+
+3. Conditionals (Decision-making)
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teen")
+else:
+    print("Child")
+
+4. Loops (Repetition)
+# for loop — go through items
+for fruit in ["apple", "banana", "cherry"]:
+    print(fruit)
+
+# while loop — repeat while condition is true
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+5. Functions (Reusable code blocks)
+def greet(name):
+    return f"Hi, {name}!"
+
+print(greet("Alex"))  # "Hi, Alex!"
+
+6. Lists & Dictionaries (Grouping data)
+# List — ordered, indexed
+colors = ["red", "green", "blue"]
+print(colors[0])      # "red"
+colors.append("yellow")
+
+# Dictionary — key → value pairs
+person = {"name": "Alex", "age": 25}
+print(person["name"]) # "Alex"
+
+Possible improvements / alternatives (just ideas, not recommendations to implement yet):
+
+Add a short “specification” step between research and code-writing (a small document that lists exactly what the new agent should do, its tools, and constraints). You approve that spec before the code agent starts.
+Have a lightweight coordinator that only routes messages and doesn’t do research or coding itself.
+Optional later: a reviewer agent that only checks the generated code after you approve the spec.
+
+About tool access (LLM, RAG, vector DB, tools, etc.)
+This is the more important design choice.
+
+Recommendation in principle:
+Do not give every agent full access to everything by default.
+
+Better approach:
+Researchers / information gatherers → need RAG, vector DB, web/search tools, file reading.
+Coordinator / planner → usually needs very few tools (or none). Its job is to talk to you and organize.
+Code-writing agent → can have more tools (file writing, code execution, ability to look up libraries, etc.), but still better if it receives a clear spec instead of freely searching for whatever it wants while writing.
+
+Why restricted access is usually better:
+
+Less noise and fewer hallucinations.
+Easier to control costs and behavior.
+Clearer debugging (“this agent can only do X”).
+You can still give the code agent a way to request a tool or information when it needs it, instead of giving it permanent access to everything.
+
+
+NOTA 
+donde guarda la informacion el planificador ya no me gusto deberia cambiarlo despues 
+
+actualizacion del dia 30/10/2026 
+creo que ya se guardo en otro lugar. 

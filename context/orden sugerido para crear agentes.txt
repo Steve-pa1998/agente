@@ -1,0 +1,27 @@
+Orden sugerido para ir creando agentes
+Agente de Investigación (el primero, simple) ← empieza aquí
+Agente de Planificación / Coordinador
+Agente de Investigación de Algoritmos (versión más enfocada)
+Después los de acción (redes sociales, leads, etc.)
+
+Social media posting  
+Marketing
+Algorithm research
+Ad research
+Planification (planning)
+Mark / logo / brand growing research
+Image building
+Email / calls agent (answers emails or calls, or at least notifies you about important ones)
+Companion / learning agent (learns with you or keeps you company)
+This one should be visible on your screen
+It should be able to request tools for almost anything, but you approve before it downloads or uses a new tool
+
+agente de leads 
+
+agente de stream 
+
+agente de clips
+
+agente de edicion de video
+
+agente de uploading 

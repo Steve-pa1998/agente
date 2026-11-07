@@ -1,0 +1,17 @@
+;; El "tool calling" de Lisp es:
+(defun lisp-eval (form-string)
+  (eval (read-from-string form-string))) 
+# Esto SÍ es un guardrail que no se "brinca":
+def safe_path(path):
+    full = os.path.abspath(os.path.join(ALLOWED_DIR, path))
+    if not full.startswith(ALLOWED_DIR):
+        return None  # BLOQUEADO. No importa lo que diga el modelo.
+    return full   
+# HITL: no importa si el modelo "decide" editar, SIEMPRE pregunta:
+if func_name in ("edit_file", "create_file"):
+    confirm = input("¿Permitir? (s/n): ")
+    if confirm != "s":
+        return "Denegado."    
+# Rate limit: no importa si el modelo quiere hacer 100 tool calls:
+if tool_call_count > 10:
+    break  # SE DETIENE. No hay negociación.    

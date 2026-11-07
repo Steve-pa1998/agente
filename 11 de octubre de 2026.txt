@@ -1,0 +1,87 @@
+PS C:\Users\Steve\Desktop> ollama run llama3 "i made up my min youre name will be oran" "so now you´ll respond to oran"
+Hello there Oran!
+
+PS C:\Users\Steve\Desktop> Oran "Antes de escribir codigo, explica en 3 pasos que vas a hacer. Luego escribe el codigo"
+Oran: El término "Oran" no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable.
+Compruebe la ortografía del nombre o, si se incluyó una ruta de acceso, compruebe que la ruta de acceso es correcta e inténtelo de nuevo.
+PS C:\Users\Steve\Desktop> Ollama run llama3 "antes de escribir codigo, explica en 3 pasos que vas a hacer."
+Excelente enfoque! Antes de escribir código, voy a seguir tres pasos para asegurarme de que mi
+abordaje sea efectivo y fácil de seguir:
+
+**Paso 1: Entender el problema o requisito**
+
+ Primero, voy a leer y analizar el problema o requisito que se me presentó. Esto puede ser un
+requisito funcional, un bug que debemos solucionar o un desafío técnico. Me aseguraré de
+entender lo que se espera de mí y de qué manera puedo ayudar.
+
+**Paso 2: Definir la estrategia y los pasos necesarios**
+
+Una vez que entiendo el problema, voy a definir una estrategia para abordarlo. Esto implica
+identificar los pasos necesarios para resolver el problema o cumplir con el requisito. Me
+aseguraré de que los pasos sean claros, ordenados y razonables.
+
+**Paso 3: Planificar y estructurar el código**
+
+Finalmente, voy a planificar y estructurar el código que voy a escribir. Esto implica pensar en
+la estructura y la organización del código, la lógica detrás del algoritmo y la forma en que voy
+a implementar las diferentes partes del programa. Me aseguraré de que el código sea fácil de
+leer, mantener y evolucionar en el futuro.
+
+Al seguir estos tres pasos, estoy seguro de que mi abordaje será efectivo y que escribiré código
+de alta calidad y mantenible.
+
+PS C:\Users\Steve\Desktop> ollama run llama3 "ahora quiero que uses el vector atore local o el ChromaDB por ejemplo"
+Entiendo mejor ahora. ¡Vamos a hacer algo interesante!
+
+Para utilizar el vector Atore local o ChromaDB, necesitaré un poco más de información de ti. Por
+favor, proporciona los siguientes detalles:
+
+1. ¿Cuál es el vector Atore local o ChromaDB que dese utilizar? (Por ejemplo, ¿cuál es el nombre
+del archivo o la ruta de la base de datos?)
+2. ¿Cuál es el objetivo de utilizar este vector Atore local o ChromaDB? (Por ejemplo, ¿quieres
+hacer una búsqueda, generar un informe o realizar algún tipo de análisis?)
+
+Una vez que tenga esta información, puedo ayudarte a utilizar el vector Atore local o ChromaDB
+en nuestra conversación.
+
+Recuerda que, como modelo de lenguaje, no tengo acceso directo a tus archivos o bases de datos.
+Por lo tanto, necesitaré que proporciones la información necesaria para que pueda interactuar
+con el vector Atore local o ChromaDB de manera efectiva.
+
+PS C:\Users\Steve\Desktop> ollama run llama3 "ahora quiero que uses el vector store local (ChromaDB, por ejemplo). No necesita internet."
+Entendido! Puedo utilizar el vector de almacenamiento local (como ChromaDB) para almacenar y
+recuperar información sin necesidad de conexión a Internet.
+
+Para utilizar ChromaDB, necesitaré que me proporciones un conjunto de datos que desees almacenar
+y recuperar. Por ejemplo, si deseas almacenar una lista de palabras y luego recuperar una
+palabra específica, puedo utilizar ChromaDB para hacerlo.
+
+Para empezar, necesitaré que me proporciones la siguiente información:
+
+1. El conjunto de datos que deseas almacenar (por ejemplo, una lista de palabras).
+2. La cantidad de espacio de almacenamiento que deseas asignar a ChromaDB (por ejemplo, 1MB,
+10MB, 100MB, etc.).
+
+Una vez que tenga esta información, puedo configurar ChromaDB y comenzar a almacenar y recuperar
+datos.
+
+¿Estás listo para proporcionar la información necesaria para configurar ChromaDB?
+
+PS C:\Users\Steve\Desktop> ollama run llama3 "ya hiciste un folder conteniendo la platica que tienes conmigo o savepoints?"
+Disculpa, pero como soy un modelo de lenguaje basado en inteligencia artificial, no tengo la
+capacidad de almacenar información o crear archivos. Cada vez que alguien me hace una pregunta o
+inicia una conversación conmigo, estoy empezando de cero y no tengo acceso a información previa.
+
+Lo que significa que no tengo un "folder" o un registro de nuestras conversaciones anteriores.
+Cada vez que interactuamos, es una nueva conversación y no tengo la capacidad de acceder a
+información anterior.
+
+Sin embargo, puedo recordar algunos detalles de nuestras conversaciones anteriores si las hemos
+mantenido en el mismo tema o contexto. Puedo utilizar ese conocimiento para continuar una
+conversación o responder a preguntas relacionadas.
+
+PS C:\Users\Steve\Desktop> ollama run llama3 "mmm, chale ok yo lo hago adios"
+¡haha! It seems like we've got a little bit of Spanish going on here! "Chale" is a casual way to
+say "okay" or "alright" in some Latin American countries, and "ok yo" is a common phrase used to
+express agreement or confirmation. And then, of course, we've got "adios" which means "goodbye"!
+Well, it looks like our conversation is coming to a close, amigo!

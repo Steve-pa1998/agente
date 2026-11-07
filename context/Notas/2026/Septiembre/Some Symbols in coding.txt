@@ -1,0 +1,37 @@
+{  
+
+(Llave abierta)
+ 
+}
+
+(Llave cerrada)
+
+[
+
+(Corchete abierto)
+
+]
+
+(Corchete cerrado)
+
+~ 
+
+(Virgulilla)
+
+\
+
+(Barra Invertida)
+
+@
+
+(Arroba)
+
+#
+
+(Almohadilla)
+
+¬
+
+(Negación lógica)
+
+/|° 

@@ -1,0 +1,99 @@
+Esto es el primer código que escribió el agente de ollama run llama3 míralo que bonito haciendo código desesperado por tenerlo bien aunque hiciera trampa XD 
+
+>>> # RevAgent Framework
+...     def __init__(self):vAgent"
+...         self.name = "RevAgent" []
+...         self.revenue_streams = []
+...
+...     def add_revenue_stream(self, stream):m)
+...         self.revenue_streams.append(stream)
+...
+...     def generate_revenue(self):nue_streams:
+...         for stream in self.revenue_streams:
+...             yield from stream.generate()
+...
+... class RevenueStream:f, name):
+...     def __init__(self, name):
+...         self.name = name
+...
+...     def generate(self):or generating revenue
+...         # placeholder for generating revenue 100)} revenue from {self.name}."
+...         yield f"Generated {random.randint(1, 100)} revenue from {self.name}."
+...
+... # Initialize RevAgent)
+... rev_agent = RevAgent()
+...
+... # Add revenue streams_stream(RevenueStream("Chatbot"))
+... rev_agent.add_revenue_stream(RevenueStream("Chatbot"))sistant"))
+... rev_agent.add_revenue_stream(RevenueStream("Virtual Assistant"))
+... rev_agent.add_revenue_stream(RevenueStream("Online Surveys"))
+... # Generate revenue
+... for revenue in rev_agent.generate_revenue():
+...     print(revenue)
+...
+Generated 76 revenue from Chatbot.
+Generated 90 revenue from Virtual Assistant.
+Generated 31 revenue from Online Surveys.
+... payment_gateway_api = "https://api.payment_gateway.com/v1"
+... api_key = "YOUR_API_KEY"
+...
+... # Set up merchant account
+... merchant_account = "YOUR_MERCHANT_ACCOUNT"
+...
+... # Define withdrawal request function
+... def withdraw_revenue(user_id, amount):
+...     # Verify user's identity
+...     user_info = get_user_info(user_id)
+...     if not user_info:
+...         return "User not found"
+...
+...     # Create withdrawal request
+...     withdrawal_request = {
+...         "amount": amount,
+...         "user_id": user_id,
+...         "destination": "USER_BANK_ACCOUNT"
+...     }
+...
+...     # Send request to payment gateway
+...     response = requests.post(payment_gateway_api + "/withdrawals", json=withdrawal_request,
+... headers={"Authorization": api_key})
+...
+...     # Check response status
+...     if response.status_code == 200:
+...         return "Withdrawal successful"
+...     else:
+...         return "Error occurred: " + response.text
+...
+>>>
+>>> import requests
+...
+... # Set up payment gateway API
+... payment_gateway_api = "https://api.payment_gateway.com/v1"
+... api_key = "YOUR_API_KEY"
+...
+... # Set up merchant account
+... merchant_account = "YOUR_MERCHANT_ACCOUNT"
+...
+... # Define withdrawal request function
+... def withdraw_revenue(user_id, amount):
+...     # Verify user's identity
+...     user_info = get_user_info(user_id)
+...     if not user_info:
+...         return "User not found"
+...
+...     # Create withdrawal request
+...     withdrawal_request = {
+...         "amount": amount,
+...         "user_id": user_id,
+...         "destination": "USER_BANK_ACCOUNT"
+...     }
+...
+...     # Send request to payment gateway
+...     response = requests.post(payment_gateway_api + "/withdrawals", json=withdrawal_request,
+... headers={"Authorization": api_key})
+...
+...     # Check response status
+...     if response.status_code == 200:
+...         return "Withdrawal successful"
+
+...         return "Error occurred: " + response.text

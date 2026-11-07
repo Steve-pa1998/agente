@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+  <!-- Fondo navy -->
+  <rect width="1080" height="1920" fill="#0A1628"/>
+
+  <!-- Ondas sutiles inferiores -->
+  <path d="M0 1600 C200 1550, 400 1650, 600 1600 C800 1550, 1000 1650, 1080 1600 L1080 1920 L0 1920 Z"
+        fill="#1E3A5F" opacity="0.3"/>
+  <path d="M0 1700 C300 1660, 500 1750, 700 1700 C900 1660, 1080 1730, 1080 1700 L1080 1920 L0 1920 Z"
+        fill="#1E3A5F" opacity="0.2"/>
+
+  <!-- Logo esquina inferior izquierda -->
+  <circle cx="80" cy="1840" r="30" fill="#4FC3F7" opacity="0.6"/>
+</svg>   

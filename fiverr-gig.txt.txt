@@ -1,0 +1,24 @@
+FIVERR GIG - Referencia de precios
+===================================
+
+Packages:
+  Basic:    $10  (2 días, 1 fuente, 10 págs, 1 revisión)
+  Standard: $25  (3 días, 3 fuentes, 50 págs, 2 revisiones)
+  Premium:  $50  (5 días, 10 fuentes, 200 págs, 5 revisiones)
+
+Extras:
+  Additional source:     $5 / $10 / $20  →  10 / 50 / 200 págs
+  Extra fast delivery:   1 day  →  $5 / $10 / $15
+  Install script:        $10
+  Task automation:       $15
+  Additional revision:   $5   
+
+
+
+
+
+Additional source:  $5 / $10 / $20  →  10 / 50 / 200
+Extra fast delivery: 1 day / 1 day / 1 day  →  $5 / $10 / $15
+Install script:     ✅  $10
+Task automation:    ✅  $15
+Additional revision: $5  →  1   

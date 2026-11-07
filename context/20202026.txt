@@ -1,0 +1,1140 @@
+This is the video i saw and the notes i wrote when seeing the 4-5 hour long video about programming and when i slept and was in a trance like state in ehich things started to connect by themselfs (first notice of dreaming state learning)
+loom
+
+store
+
+mill 
+
+condintional branching
+
+operation
+
+variable
+
+ 0000 1 001 add
+0010010 sub 
+
+movee value to another memory space
+MOV
+
+memory loacations
+X, Y, Total 
+
+abstraction is kinda like what a ñanguage is 
+
+and fortran is like the compiler 
+
+machine code -> compiler -> abstraction 
+
+fortran -> compiler -> machine code
+
+Lexing = Tokenizing 
+
+Steam of text character river of text 
+breaks it into
+chunks 
+
++,-,*,/ = operater
+
+Variable name 
+
+semicolon 
+
+parsing
+
+figuers out the structure 
+
+The grammer = syntax
+
+verb, object, subject 
+
+assignment statement =
+variable = expresion
+variable on the left. equal sign in the middle, and a expresion on the right  
+
+And if statement had a condition and a body 
+
+A function call has a name and a list of arguments
+
+paser recongizes these patterns and builds what is called a parse tree or an abstract syntax tree, A hierarchical prepresentation of the program structure
+
+notation backus-naur or bnf 
+write down the grammer rules of a programming language in a formal, unambiguious way = (Not open to more than one interpretation; clear and precise in meaning). 
+for example you can specify that an expression is either a number or a varibale, or 2 expresions sepearted by a an operater 
+from these rules you can mechanically construct a parser that recognizes valid programs.
+It means that desinging a programing language can be a precise mathamatical activity
+
+next stage is usally some form of semantic analysis, checking that program actually makes sense 
+
+variable scoping figuring out which variable you mean when you use a name since the same name may mean diffrent things in diffrent parts in the program
+
+optimization
+this is where the compiler looks a t the structure on your program  and tries to figuer out how to make it faster how to make it use less memory how to elimnate unnecesary work
+
+for instance if a particular calculation inside a loop produces the same result every time so they move it outside the loop, do it once instead of a  millon times   
+if 2 variables are never used a t the same time so they can share the same register
+They can rearrange the order of instructions to keep the processor´s pipeline full
+avoiding stalls where the  procesro would otherwise sit idle waiting for data 
+they can inline small functions, replacing a function call, with the function´s body eliminating th forehead of the call itself 
+
+Code Generation 
+The Compiler takes the Optimized Internal Representation and produces actual machine code for the target processor.
+Specific binary instructions, specific register assignments, specific memory layouts. 
+
+And the code generator has to know the target machine intimately.
+
+How many register´s it has, what instructions it support´s, How it´s memory cache works, What operations are fast and Which are slow. 
+
+A good compiler generating code for an intel processor produces very diffrent output than
+
+The same compiler generating codefor an A.R.M processor in your phone, even with the exact same source code.
+
+The source code is portable. write it once.
+
+The machine code is specific, tailored to the hardware it runs on.
+
+That/This is what a compiler does.
+
+It Lex´s, It Pars´s, It Analyz´s, It Optimizes, It Generate´s, And the whole procces happen´s in the blink of an eye on a modern machine. 
+
+Fortran, Number Crunching
+Is made for scientists and engineers, for people that wanted to write mathematical formulas. 
+
+Scientific Calculation´s
+
+Cobol,
+Community of 
+Businesses, Banks, Insurance Company´s, Government Agencies, PayRoll Department´s  
+
+Data Processing
+
+Reading record´s, Sorting Information, Generating Report´s, Processing Transaction´s.
+
+Accounting and Logistics 
+
+Cobol makes more lines that include Section Headers, and Paragraph Names, and a Data Division and a Procedure Division. 
+
+Lisp, list processing, AI 
+Manipulating Symbols and Reasoning 
+Symbols, Words, Logical Relationship´s,  Abstract Structures. 
+
+Everything is a  list.
+A list is just a collection of item´s enclosed in parenthesis.
+An item can be a
+A Symbol
+A Number
+Or Another List.
+
+The Programs Themselfs are List´s.
+
+Code and Data have the exact same form. 
+
+A function call in Lisp looks like this 
+
+Open Parenthesis
+(
+The name of the function,
+(print
+Then the arguments, 
+(Sleep, learn, dream
+Close parenthesis
+(Sleep, learn, dream)
+Add three, four
+(Sleep, learn, dream)3,4 
+Means call the function add with the arguments 3 and 4.
+
+
+
+
+En Lisp una llamada a funcion es:
+
+(nombre-funcion arg1 arg2 arg3 ...)
+
+El nombre de la funcion va DENTRO de los parenthesis, como primer elemento.
+
+Los argumenetos van despues, separados por espacios (nuca comas).
+
+No existe la notacion funcion(args) como en C/Python.
+
+Entonces, llamar a add con 3 y4 es 
+
+(add 3 4)
+
+Y (print "hola") es llamar a print con el argumento "hola".
+
+
+A lsip program can manipulate other lisp programs or even manipulate itself as easy as it manipulates any other kind of data.
+
+It can build up new code on the fly execute it, modify it. 
+
+The program is malleable, fluid, plastic in a way that fortran and cobol programs simply aren´t.
+
+Think about how diffrent that is.
+
+In fortran the program is fixed.
+You write it, compile it, run it. The machine executes your instructions in order. 
+
+But in lisp, the program can grow and change while it´s running. 
+
+It can write new functions, redefine existing ones, construct entire new programs, and execute them immediately. 
+
+This made lisp extraordinarily powerful for ai research, where you often don´t know in advance what the program needs to do.
+
+You want the program to figure that out for itself, to adapt to learn, to build up new knowledege structures as it goes. 
+
+Garabge Collection 
+
+Here is the problem it solves,
+
+When a program runs it often creates new data structures, (List´s in lisp´s case). It allocates memory to hold them but eventually some of those data structures are no longer needed the program has moved on. 
+
+The temporary results have been used and discarded, and the memory they occupied is just sitting there, wasted.
+
+In fortran or assembely the programer is directly responsible for maually tracking all of this, for explicitly telling the machine for when a piece of memory is no longer needed  so it can be reused. 
+
+And if you get it wrong if a bit of memory is still in use, or forget to free memory that isn´t, you get bugs that arenotoriously difficult to find. 
+
+- Memory errors
+- Crashes   
+- Data Corruption
+
+The nightmares that would haunt programers for decades.
+
+McCarthy´s solution was 
+Automatic Garbage Collection. 
+
+The lsip runtime would periodically scan through all the data structures in memory, figure out which ones were still being used and which ones were orphaned, and automatically reclaim the orphaned memory, the programmer did´nt have to think about it. The machine handled it was another step in that long march we´ve been tracing, The machine taking on more and more of the bookeping burden, freeing the human to think about the actual problem. 
+
+and lisp wasen´t just practically importanmt. 
+It was theoretically deep. 
+
+McCarthy published a paper in 1960 called recursive functions of symbolic expressions and their computation by machine, and in it he showed that the core of lisp could be defined in terms of just a handful of primitive operations. It was one of those moements where engineering and mathematics meet, where a practical programming language turns out to embody a beautiful theoretical structure. 
+
+Maxwell´s equation of software      
+
+Fortran and cobol are imperative languages 
+
+Lisp is the ancestor of a diffrent tardition  functional programming more on describing what you want 
+
+Java, Python JavaScript 
+they are Primarily Imperative though they've borrowed many ideas from the functional tradition.
+
+And languages in the Functional Tradition
+Haskel
+Erlang
+Clojure
+Which are actually are a modern dialect of lisp they are still being used particuallary in context where corectness and reliability are paramount.    
+
+Financial Trading Systems, Telecommunications Infrastructure, 
+Safety-Critical Software. 
+
+The functional appreocah makes bugs much harder to intorduce, for reasons we'll get into a bit later when we talk a bout how state and mutability work. 
+
+But all of that philosphical branching is still in the future.
+
+Moore's Law
+
+Go to statement 
+In early programming languages a goto was a fundamental control mechanism it was an instruction that told the machine to jump to a diffrent point in the program and continue executing from there. 
+
+Want to skip over a section of code? R= GOTO.
+
+Want to loop back to an earlier instruction? R= GOTO
+
+Want to handle an error condition? R= GOTO
+
+It was the Duck Tape of programming. 
+Easy to use, Versatile and Used Everywhere. 
+
+And the result was a tangled mess of jumps and branches that was almost impossible to follow Spaghetti Code
+
+Construct flow constructs,
+
+1. Sequences which execute one statement after another in order, 
+
+2. Selections which choose between alernatives, if then else, and 
+
+3. Iterations which repeat a block of code, while loops, for loops. 
+
+These 3 constructs properly combiened can express any computable algorithm. 
+
+You never need GOTO
+
+and the programs you write without it, are vastly easier to read, understand, debug, and maintain, because the stucture of code directly reflects the logical structure of what it's doing. 
+
+Pascal
+C
+ADA
+JAVA
+PYTHON 
+ALL THE REST. 
+
+All adopted structured programming as a fundamental design principal. 
+ 
+GOTO statement's still exist in some languages, but they're rarely used and generally frowned upon. 
+
+
+OS
+Operating System
+That's the Master Program that manages a Computer's Hardware. 
+The Thing That Handles Memory, 
+Runs Program's, 
+Manage's file's, 
+Talks to the KeyBoard
+And the Screen. 
+
+UNIX from bell's in NewJersey
+write the operating system once and recompile it for difrent machines. 
+But low level enough to do what an operating system needs to do:
+
+- Manipulate individual byets of memory 
+- Talk directly to hardware devices,
+- Control exactly how data is laid out in memory.
+
+They needed a language that was, as people sometimes describe C, One step above assembly but with the power to reach down and touch the machine when you needed to. 
+C was that language 
+
+Ritchie evolveld it from 1969-1973 from an earlier language called 'B' that thompson had created from "BCPL" 
+
+C
+- Portable
+Write yuour program in C recompile it on a difrent machine and it would usally work with minimal changes. And it was Powerfull.
+It gave you direct access to memory adresses, to bit-level operations, to all the low-level capbilities you needed for systems programming. 
+
+Now thanks to that UNIX could be used in any machine it was no longer tied to one machine by rewriting the part of the code that dealt with rewrting the code that dealt with dealñing with specific hardware.
+
+The Langua Fragna 
+the language that compilers, device drivers, embeded systems, and thousands of other pieces of fundamental software infrastructure  were written. And C Is Still Here The Linux Kernel, 
+The Operating system that runs the majority of the world´s serever´s, that power´s andrios phone´s, that runs most of the cloud infrastructure behind every website you visit. It´s written in C. 
+The windows kernel has enormous amounts of C.
+The interperters and virtual machines that run higher-level languages like python and javascript
+many of them are writeen in C.
+The FirmWare in your Router,
+Your Cars Computer
+YOur Washing Machine, 
+The Control Systems in 
+Airplanes And
+Factories And 
+Power Plants.
+
+C is Everywhere
+
+Bridge Language
+
+But C Came With A Cost, And that cost has shaped the entire subsequent history of programming.
+The price of C´s Power and closeness to the machine was that it trusted the programmer completely.
+C would let you do almost anything, including things that were catastrophically wrong. 
+It would let you write past the end of an array, corrupting whatever data happend to be stored NEXT TO IT in memory. 
+It would let you follow a pointer to a memory address that had already been freed, 
+Reading garbage Data or 
+Crashing the Program. 
+It would let you forget to memory you'd allocated, slowly leaking resources until the program ground to a halt.
+
+And when things went wrong, the eroro messages were either cryptic or non-existent.
+
+The program might crash. 
+It might produce wrong results.
+It might seem to work fine for months and then fail unpredictably under specific conditions that were almost impossible to reproduce. 
+These kinds of bugs,
+Memory errors. 
+Buffer overflows,
+Dangling Pointers, 
+Use-After_Free,
+They wouldn´t just crash individual programs. They would become some of the most explioted security vulnerabilities in the history of computing. 
+
+The Morris Worm 
+
+Buffer Overflow in C 
+HeartBleed 
+OpenSSL Vulnerability 
+
+Buffer Overread in C Code
+
+Memory Safety Bugs 
+
+The direct consequence you get of a Language that gives 
+The Only Problem you get when you trust programmer´s 
+
+Complete control over memory and trusts them to manage it correctly.
+
+And Programmers being Human, Make Mistakes.
+
+This Tension 
+Between the power that comes from closeness to the machine and the safety that comes from the machine protecting you from your own mistakes, this is one of the central tensions of the history of programming languages. 
+And the response to it would drive some of the most important developments in langauge design over the next several decades. 
+Becasue people started asking, what if the language itself could prevent these mistakes?
+What if instead of trusting the programmer to manage memory correctly,  the runtime  system managed it automatically? What if the compiler could catch error´s before the program ever ran? Those questions would lead to an entirely new philosophy of programming and to a revoultion in how people thought building large, complex software systems. 
+Object-Oriented Programming. 
+
+Simmulation, Modeling Community 
+
+Tools for Human Creativety and Communication  
+The earliest seeds were planted in norway, 
+Building simulation programs.
+They were trying to simulate complex systems, 
+Shipping Operations, 
+Factory Floor Layouts,
+Queuing Processes, And they ran inot a fundamental problem with the programming tools available to them.   
+
+When youre simulating a shipping port, for  instance you got 
+Ships
+Cranes
+Docks
+Containers
+Workers
+
+And each of these things has properties.
+A ship has a position, a capacity a destination, and beehaviors. 
+
+A ship can 
+Sail, 
+Dock, 
+Load, 
+Unload
+And all these entities interact with each other in complicated ways 
+In a traditional procedural language like fortran  you´d model this by having several arrays of data, one for ship positions, one for ship capacities, one for dock status, and seperate procedures that operated on those arrays. 
+
+But as the simulation got more complex with more types of entities and more interactions the code became an entangled mess. 
+
+The data and the operations on that data were scattered all over the program.
+
+Change one thing and you´d have to track down every procedure that touched that data and had make sure you hadn´t broken something. 
+
+CLASS
+Bundle the data and the operations togeter 
+
+CLASS
+Instead of having difrent data structures for ship proporties and seperate procedures for ship behaviors, you´d define a ship that contained both and it´s data and the things it oculd do. 
+CLASS 
+
+ And they called each specific instance of a class an oblect.  
+ boss = dog = species = Class
+Name boss 
+what is boss?
+He is a = Dog
+what is a Dog?
+It´s a species of animal
+
+OBJECT IS A LIST 
+
+A class is like a blueprint.
+It defines what a ship is and what it can do. 
+An Object is an Actual Ship with Specific Values for its properties. 
+You Could create a Thousand Ship Objects from a Single Ship Class, And Each One Would Carry It's Own Data While Sharing The Same Set Of Behaviors. 
+They built this idea into a language called
+Simula
+Introduced Classes 
+Objects, 
+Inheritance,
+The idea that one class could be a specialized version of another, iheraiting its prporties and behaviors while adding or modifying some and 
+polymorphism
+The idea of difrent types of objects could respond to the same message in diffrent ways. 
+
+A 
+Ship and a
+Truck may both repsond to the command 
+move
+But they´d do it difrently.
+The message is the same the behavior depends on the reciever 
+These concepts classes objects inheritance polymorphism
+Would become the 4 Pillars of OBJECT-ORIENTED PROGRAMMING, and they all trace back to simula. 
+
+Kay articulated a vision for personal computing that includeed graphical user interfaces with overlapping windows, Mice, Icons, Direct Manipulation of on-screen objects, Networking, Multimedia. 
+
+DYNABOOK
+
+Smalltalk was the name of the programming language kay made
+
+Everything is an object here numbers, icons, documents, classes, and they don´t interact via events or eachother if not by message 
+
+The number 3 dosen´t have an addition function applied to it from outside. 
+You send the number 3 a mesage plus 4, and it responds with 7
+
+That´s Encapsulation 
+
+
+JVM
+Java´s imaginary Computer
+
+makes it so the compiler runs it on java´s JVM first and then on your computer 
+
+COmpiled languages 
+languages where a acompiler transalate the entire source code into machine code or byte code before the program runs. 
+
+Interpretation where the program is transalated and executed on the flñy line by line as it runs instead of compiling youre entire program first and then running the compiled version, an interpreter reads one istuction, transalate´s it execute´s it then moves to the next instruction. 
+
+Immediacy
+You can write a line of code and run it instantly without waiting for a compilation step. you can experiment interactively, try something, see the result, adjust, try again.
+
+For rapid development, for scripting for prototyping, for exploration. 
+
+The disadvantage is speed. 
+
+Perl
+
+Python
+
+Indentation
+
+Curly braces 
+Begin-END keywords
+
+JUST-IN-Time compilation
+JIT
+   
+
+TYPE system 
+Basic idea
+
+Every value in a program has a type. 
+the number 42 is an integer. 
+The number 3.14 is a floating point number. 
+The text "Hello" is a string. 
+
+A type tells you what kind of thing a value is and what operations make sense for it. 
+You can add two numbers you can concatenate two strings. 
+But adding a number to a string, what does that even mean? 
+That depends on the language, and how a language handles that question says a lot about it´s philosphy. 
+
+In a statically type language like C, Java, or Typescript
+The types of all variables are known at compile time before the program ever runs. 
+
+When you declare a variable, you say what type it is. 
+This variable holds an integer.
+That variable holds a string.
+And the compiler checks before the program runs that you never do anything inconsistent, that you never try to multiply a sting by a boolean or pass a number to a function that expects a list.
+
+If you make a type error, the compiler catchces it immediately and refuses to compile the program. 
+
+You fix the error before the program ever executes. 
+
+This is enourmously valuable because it means an entire class of bugs is caught early, automatically, before they can ever casue a problem in a running system. 
+
+The type system acts as a safety net, catching mistakes at compile time that would otherwise become bugs at runtime. 
+
+In a dynamically typed language like python, javascript or ruby varaibales don´t have fixed types. 
+A varaible can hold a number one moment and a string the next. 
+The types are checked runtime when the code actually executes. 
+If you try to add a number to a string in python, you´ll get an error, but you´ll get it when the program runs and reaches that line, not when you compile. 
+
+This makes dynamic languages more flexibil and often faster to write.
+you dont have to declare types.
+you don´t have to satisfy the compilers type checker.
+you can just write code and run it. 
+
+But the price is that certain bugs that a static type system would have caught at compile time slip through and manifest only at runtime, possibly in production, possibly in front of your users this trade-off, 
+
+The trade-off between the flexibilty of dynamic typing and the safety of static typing, is one of the oldest and most hotly debated topics in programming language design. 
+
+and the trend in recent years has been toward a middle ground 
+
+typescript, created by microsoft in 2012, adds a static type system to javascript 
+You can annotate your javascipt code with type information, and the typescript compiler  checks it for consistentcy before generating plain javascript. 
+
+Python added optional type hints starting 2014, and tools like mypy can check those hints statically. 
+The idea is to get the safety benefits of static typing while keeping the flexibility and ease of use that made dynamic languages popular in the first place. and there´s a deeper story here about what types really are and why they matter so much. 
+Because a sophisticated type system dosen´t just catch simple mistakes like adding a string to a number. 
+It can express constraints and invariants about your program that the compiler enforces automatically.
+
+In a language like HASKELL, the type system can express the idea that a particular function has no side effects. 
+It takes an input and produces an output, and that´s all it does. 
+It dosen´t modify any global state. 
+It dosen´t write to a file. 
+It dosen´t launch a missile.
+The type system guarantees it.
+and that guarntee, enforces by the compiler, makes the function easier to reason about, easier to test, easier to compose, with other functions. 
+It´s not just error chechking.
+it´s a form of formal specification, a way of precisely stating what your code promises to do and having the machine verify that it keeps those promises.
+
+This connects on something we touched about in earlier, about functional programming.
+In a purely functional language, functions don´t modify state.
+They take inputs and produce outputs, and they always propduce the same output for the same input.
+They´re like mathamtical functions, predictable, deterministic, no surprises.
+
+And this makes certain kinds of bugs impossible. 
+If a funtion can´t modify global state, It can´t introduce the kind of subtle, hard to fin bugs that come two parts of a program modifying the same data in unexpected ways. 
+
+TRUST YOUR DREAMS FOR THE FUTURE.
+
+those bugs, race conditions, concurrent modifacation errors, order of operation dependencies, they´re some of the hardest bugs in all of software egineering, and a disciplined approach to managing state enforced by the type system can eliminate them entierly.
+
+Java added lamba expressions and streams.
+Python has map, filter and list comprehensions. 
+
+Even javascript, That language designed in ten days, has embraced functional idioms to the point where much modern javascript is written in a style that would be recongizeable to a lisp programmer from 1960  
+And that brings us to something that tie stogeter evrything we´ve been talking about, something that´s at the very heart of what programming languages are trying to do.
+Because when you step back and look at the entire history, what you see is a story about managing complxity. Every new language, 
+Every New Language,
+Every New Paradigm,
+Every New Feature,
+Is an attempt to help
+humans manage the overwhelming complexity of telling a machine what to do.
+The machine itself has gotten simpler in some ways, its basic operations haven´t changed much since the 1940´s.
+It still adds, subtracts, compares, jumps. 
+But the things we ask machines to do have gotten astronomically more complex.
+A modern web-browser is tens of millions of lines of code and a operating systems is hundred of millions.
+No single Human mind can hold all of that.
+Programming languages are tools that make it possible to organize that vast complexitcy into something into something a human team could build, understand and maintain.
+
+And the ways they managed that complexcity fall into a few big categories.
+
+Abstraction
+Hiding the details you don´t need to see right now.
+
+Modularity, 
+Breaking the system into independent pieces that could be understood and built seperatly.
+
+Type Safety,
+Having the machine check that the pieces fit togeter correctly.
+
+Automatic Resource Management,
+Having the machine handle bookeeping that humans do that badly.
+
+and 
+Expressiveness, 
+Letting the programer describe their intentions in a way that´s close as possible to how they actually think about the problem, rather than forcing them to transalate into an alien vocabulary of registers and memory addresses.
+
+And the last point, 
+Expressiveness, 
+The ability to think at the level of the problem rather than at the level of the machine, is really what the whole story is building toward.
+
+Because the latest chapter in the history of programming languages is about psuhing that idea further than it´s ever gone before, about creating tools that let programmers express what they want at even a higher level off abstraction, while the machine takes care of an ever greater share of the underlying complexity.
+And one of the most Facinating recent entries in that story is a Language that tackles head on the problem we spent so much time discussing the memory safety problem that has haunted C, and C++ for decades, but does it in a way that no body had quite managed before. That story is RUST and the story of how it emerged 
+
+Ascii encoding  
+A = 97 
+B = 98 
+C = 99 
+D = 100
+E = 101
+F = 102 
+G = 103
+H = 104
+I = 105
+J = 106
+K = 107
+L = 108
+M = 109
+N = 110
+O = 111
+P = 112
+Q = 113
+R = 114
+S = 115
+T = 116
+U = 117
+V = 118
+W = 119
+X = 120
+Y = 121
+Z = 122
+ 
+You´re Beatiful meaningful code is, at the level of storage, just a sequence of numbers.
+now you run the program. 
+
+However you do it the operating system launches the python interperter, a program itself,  
+A program´s job is to run other programs.
+and the pyhton interperter reads that file.
+
+It lexes the text into tokens.
+
+the word print is a function name.
+
+The parentheses opens a an argument list.
+
+print ("Hello world"
+)
+The quoted text is a string literal.
+
+The closing parentheses ands the argument list 
+
+It parses those tokens into an abstract syntax tree, a call expresion with the function print and one argument the string hello world. 
+It evaluates that tree, which means it looks up the print function in its internal table of built in functions and calls it with the string argument. 
+The print argument sends the string to the stabdard output, typically you´re terminal or console.
+
+But even sends the string to then standard output hides layer´s of complexity.
+
+The python interperter which is itself a program written in C, calls a C function to write the string.
+That C function makes a system call, 
+
+A request to the operating system.
+the operating system takes the string and figuer´s out, where standard output is going.
+maybe a terminal window, maybe a file, maybe a network connection. If it´s a terminal window, the operating system passes the string to the terminal´s display code, which figuer´s out what pixel´s light up on the screen, to display each letter. that display code talks to the gpu, which actually controls the individual pixels on your monitor.
+
+And the Gpu is driving a physical display, LCD, OLED, ETC Where actual light is being emitted or blocked to form the shapes of the 
+
+So what happend?
+
+You typed a line of code that code was interperted by a program written in C.
+The C program made calls to the operating system, which was also largely written in C. The operating system talked to hardware drivers, some written in C some in assembely 
+the hardware drivers send signals to the gpu which has its own firmware written in low level-code
+and the gpu manipulated actual physical matter - liquid crystals or organic leds to produce photons that travel to your eyes. 
+   
+concurrency 
+procesor speed
+clock speed 
+from kiloherts to megahertz to gigahertz
+
+(Sleep arg1 arg2 arg3)
+10. Sandbox (nivel avanzado)
+Para producción, el agente corre en un contenedor o microVM (Docker, Firecracker, gVisor) donde:
+
+No tiene acceso a la red (o solo a un allowlist)
+No puede escribir fuera de su workspace
+Se destruye al terminar la sesión 
+Para tu caso local, el safe_path() + tool allowlist ya te cubren lo esencial. Docker es el siguiente paso si quieres más aislamiento.
+
+Resumen: lo que implemento en tu main.py hoy
+#	Sistema	Dificultad	Impacto
+1	Tool allowlist por agente	Fácil	Alto
+2	HITL para writes	Fácil	Alto
+3	Filesystem scoping	Fácil	Alto
+4	Rate limiting	Trivial	Medio
+5	Audit log	Fácil	Medio
+6	Timeouts	Fácil	Medio
+7	Rule of Two (diseño)	Concepto	Alto
+8	Secrets fuera de alcance	Ya lo tienes	Alto
+9	Anti prompt injection	Medio	Alto
+10	Docker sandbox	Avanzado	Máximo
+
+¿Quieres que te arme el main.py con los puntos 1-6 integrados? Es lo más práctico para tu caso: agente local, Python, Groq.
+
+
+Copiar
+
+
+deja hago lo de aqui primero asi con estos pasos que me faltari apara hacer una buena entradad o es algo decente para subir a github? o como ves
+
+
+Evaluación de calidad del código para GitHub
+Es decente para una primera entrada a GitHub. No necesitas tener todo perfecto para subir. Pero sí agrega estas 3 cosas antes de hacer el primer push:
+
+1. .gitignore (si no lo tienes completo):
+
+env/
+.env
+__pycache__/
+*.pyc
+agent_log.txt
+
+Importante: el .env nunca va a GitHub (tiene tu API key).
+
+2. README.md:
+
+# Agente de Optimización
+
+Agente de IA en Python puro que puede leer, crear y editar archivos.
+Construido con Groq (gratis) + librería openai.
+
+## Uso
+
+```bash
+python -m venv env
+env\Scripts\activate
+pip install openai python-dotenv
+
+Crea un .env con:
+
+GROQ_API_KEY=gsk_tu_key
+
+python main.py
+
+Tools
+list_files_in_dir — lista archivos
+read_file — lee un archivo
+create_file — crea un archivo
+edit_file — edita un archivo
+Modelo
+openai/gpt-oss-120b en Groq (free tier)
+
+
+**3. Un `requirements.txt`:**
+
+openai
+python-dotenv
+
+(Eso en vez de que la gente adivine qué instalar.)
+
+---
+
+**Lo que NO necesitas para la primera subida:**
+- Los sistemas de seguridad (puedes agregarlos en un segundo commit)
+- Docker
+- Tests
+- CI/CD
+
+**Lo que SÍ te hace ver profesional en 5 minutos:**
+
+| Archivo | Para qué |
+|---|---|
+| `.gitignore` | No subir tu key |
+| `README.md` | Que alguien entienda qué es |
+| `requirements.txt` | Que lo instalen en 1 comando |
+
+Con eso, sube. Después vas agregando los sistemas de seguridad como commits separados ("feat: add filesystem scoping", "feat: add HITL approval", etc.). Eso le da al repo un **historial limpio** que se ve muy bien.
+
+**Comandos para subir:**
+```powershell
+git init
+git add .
+git commit -m "feat: agente básico con 4 tools (list, read, create, edit)"
+git remote add origin https://github.com/tu-usuario/nombre-del-repo.git
+git push -u origin main
+
+Crea el repo en GitHub primero (sin README, sin .gitignore — que sea vacío) y luego push.
+
+
+Copiar
+
+
+espera no hemos terminado sigue el principal motivo primero para mi jaja, o que funcione y que se pueda soportar el mismo y que me ayude y los 2 obtengamos algo para avanzar del otro como especie
+
+
+
+Analizando el propósito existencial del proyecto
+Jaja, sí, tienes razón. Zoom out.
+
+Lo que realmente quieres (lo que dijiste desde el inicio):
+
+Un agente que:
+
+Se soporte a sí mismo → pueda mejorar sus propios prompts/definiciones sin que tú lo hagas
+Te ayude a ti → que sea útil en tu flujo de trabajo diario
+Avancen juntos → que lo que aprenda el agente te sirva y viceversa
+Lo que ya tienes hoy:
+
+Tu agente ya puede leer, crear y editar archivos. Eso significa que ya puede optimizar sus propios .md. El loop de auto-mejora ya existe:
+
+Tú le pides → él lee su propio prompt → lo edita → ahora rinde mejor → tú le pides algo más difícil → él se ajusta de nuevo
+
+Para que se "soporte a sí mismo" de verdad, le falta 1 cosa:
+
+Que tú no le tengas que pedir que se optimice. Que lo haga solo cuando detecte que algo no le salió bien. Eso es un meta-loop:
+
+# Pseudo-código del meta-loop
+if la_ultima_respuesta_fue_un_error:
+    # El agente lee su propio prompt
+    # Lo edita para evitar el mismo error
+    # Lo guarda
+    pass
+
+Eso es lo que separa un "script con tools" de un agente que se mejora solo.
+
+Para que te ayude a ti (no solo a sí mismo):
+
+Agrega tools que se conecten a tu vida:
+
+Leer/escribir en tus carpetas de trabajo
+Ejecutar comandos de terminal (con HITL)
+Buscar en el web
+Resumir cosas que tú le pases
+Cada tool que le agregas es una forma en que te ayuda.
+
+**Para que "obte
+
+ngan algo como especie":**
+
+Eso ya está pasando. Cada vez que el agente optimiza un prompt y funciona mejor, tú aprendes cómo estructurar instrucciones para IA. Cada vez que tú le corriges, el agente (o la versión siguiente) lo hace mejor. Es un co-aprendizaje. No necesitas un framework enorme para eso — ya lo estás haciendo con un main.py de 100 líneas.
+
+Resumen del roadmap real:
+
+Fase	Qué es	Estado
+1	Agente con tools (read/write/list/edit)	✅ Ya lo tienes
+2	Auto-optimización (meta-loop)	Siguiente
+3	Tools útiles para ti (terminal, web, etc.)	Paralelo a 2
+4	Múltiples agentes que se optimizan entre sí	Después
+5	Subir a GitHub + compartir	Cuando quieras
+
+¿Quieres que armemos el meta-loop (fase 2) ahora? Es lo que lo hace "auto-soportado".
+
+Aquí está tu main.py con el meta-loop integrado. El agente ahora:
+
+Carga su propio prompt desde agents/self.md
+Si algo falla (error o tú le dices "incorrecto"), se lee a sí mismo, analiza qué salió mal, y reescribe su propio prompt
+La siguiente vez arranca con el prompt mejorado
+Borra todo y pega:
+
+import os, json
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+
+client = OpenAI(
+    base_url="https://api.groq.com/openai/v1",
+    api_key=os.environ.get("GROQ_API_KEY")
+)
+
+# --- Herramientas ---
+
+def list_files_in_dir(directory="."):
+    try:
+        return "\n".join(os.listdir(directory))
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def read_file(path):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def create_file(path, content):
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True) if os.path.dirname(path) else None
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(content)
+        return f"Archivo '{path}' creado."
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def edit_file(path, old_text, new_text):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        if old_text not in content:
+            return f"Error: texto no encontrado en '{path}'"
+        content = content.replace(old_text, new_text, 1)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(content)
+        return f"Archivo '{path}' editado."
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+# --- Tools ---
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "list_files_in_dir",
+            "description": "Lista los archivos en un directorio",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "directory": {"type": "string", "description": "Ruta del directorio"}
+                },
+                "required": ["directory"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "Lee el contenido de un archivo",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Ruta del archivo"}
+                },
+                "required": ["path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_file",
+            "description": "Crea un archivo nuevo",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Ruta del archivo"},
+                    "content": {"type": "string", "description": "Contenido"}
+                },
+                "required": ["path", "content"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "edit_file",
+            "description": "Edita un archivo reemplazando texto",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Ruta del archivo"},
+                    "old_text": {"type": "string", "description": "Texto a reemplazar"},
+                    "new_text": {"type": "string", "description": "Texto nuevo"}
+                },
+                "required": ["path", "old_text", "new_text"]
+            }
+        }
+    }
+]
+
+# --- Prompt del agente (auto-soportado) ---
+
+SELF_PROMPT_PATH = "agents/self.md"
+
+def load_self_prompt():
+    """Carga el prompt del agente desde su propio archivo."""
+    if os.path.exists(SELF_PROMPT_PATH):
+        return read_file(SELF_PROMPT_PATH)
+    else:
+        default = "Eres un agente útil que responde en español. Puedes listar, leer, crear y editar archivos."
+        create_file(SELF_PROMPT_PATH, default)
+        return default
+
+def self_optimize(context):
+    """
+    Meta-loop: el agente lee su propio prompt, analiza qué salió mal,
+    y lo reescribe para no repetir el error.
+    """
+    print("\n🔄 [META-LOOP] El agente está optimizando su propio prompt...")
+
+    current_prompt = read_file(SELF_PROMPT_PATH)
+
+    # Le pides al modelo que se auto-corrija
+    meta_messages = [
+        {
+            "role": "system",
+            "content": (
+                "Eres un meta-agente que optimiza prompts. "
+                "Te van a dar el prompt actual de un agente y un contexto de error. "
+                "Tu tarea: reescribe el prompt para que el agente NO repita ese error. "
+                "Devuelve SOLO el nuevo prompt, sin explicaciones."
+            )
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Prompt actual:\n---\n{current_prompt}\n---\n\n"
+                f"Contexto del error:\n{context}\n\n"
+                "Escribe el prompt mejorado."
+            )
+        }
+    ]
+
+    response = client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=meta_messages
+    )
+
+    new_prompt = response.choices[0].message.content.strip()
+    create_file(SELF_PROMPT_PATH, new_prompt)
+    print(f"✅ Prompt actualizado en {SELF_PROMPT_PATH}\n")
+    return new_prompt
+
+# --- Ejecutor de tools ---
+
+def execute_tool(func_name, func_args):
+    if func_name == "list_files_in_dir":
+        return list_files_in_dir(**func_args)
+    elif func_name == "read_file":
+        return read_file(**func_args)
+    elif func_name == "create_file":
+        return create_file(**func_args)
+    elif func_name == "edit_file":
+        return edit_file(**func_args)
+    else:
+        return "Función desconocida"
+
+# --- Bucle principal ---
+
+def main():
+    self_prompt = load_self_prompt()
+    print(f"🤖 Agente iniciado. Prompt cargado desde {SELF_PROMPT_PATH}\n")
+
+    messages = [
+        {"role": "system", "content": self_prompt}
+    ]
+
+    while True:
+        user_msg = input("Tú: ").strip()
+
+        if not user_msg:
+            continue
+        if user_msg.lower() == "salir":
+            print("¡Hasta luego!")
+            break
+
+        # ¿El usuario indica un error? (dispara el meta-loop)
+        if user_msg.lower() in ("incorrecto", "mal", "error", "no"):
+            context = f"El usuario indicó que la última respuesta fue incorrecta o mala."
+            self_prompt = self_optimize(context)
+            messages = [{"role": "system", "content": self_prompt}]
+            print("🔄 Prompt actualizado. Intenta de nuevo.\n")
+            continue
+
+        messages.append({"role": "user", "content": user_msg})
+
+        try:
+            response = client.chat.completions.create(
+                model="openai/gpt-oss-120b",
+                messages=messages,
+                tools=tools
+            )
+        except Exception as e:
+            print(f"❌ Error de API: {e}")
+            # Dispara meta-loop si fue un error del modelo
+            context = f"El agente generó un error de API: {str(e)}"
+            self_prompt = self_optimize(context)
+            messages = [{"role": "system", "content": self_prompt}]
+            continue
+
+        reply = response.choices[0].message
+
+        # Bucle de tool calls
+        while reply.tool_calls:
+            for tool_call in reply.tool_calls:
+                func_name = tool_call.function.name
+                func_args = json.loads(tool_call.function.arguments)
+                print(f"🔧 {func_name}({func_args})")
+
+                result = execute_tool(func_name, func_args)
+
+                messages.append({
+                    "role": "assistant",
+                    "content": reply.content if reply.content else "",
+                    "tool_calls": [tool_call.model_dump()]
+                })
+                messages.append({
+                    "role": "tool",
+                    "tool_call_id": tool_call.id,
+                    "content": result
+                })
+
+            response = client.chat.completions.create(
+                model="openai/gpt-oss-120b",
+                messages=messages,
+                tools=tools
+            )
+            reply = response.choices[0].message
+
+        # Respuesta final
+        final = reply.content if reply.content else "(sin respuesta)"
+        messages.append({"role": "assistant", "content": final})
+        print(f"Agente: {final}\n")
+
+if __name__ == "__main__":
+    main()
+
+¿Qué hace el meta-loop?
+
+Tú escribes	Qué pasa
+incorrecto / mal / no	El agente lee su propio self.md, analiza el error, y lo reescribe
+Error de API	Igual, se auto-corrige
+Cualquier otra cosa	Responde normal con tools
+
+Tu estructura queda así:
+
+proyecto/
+├── env/
+├── .env
+├── main.py
+└── agents/
+    ├── self.md       ← SU prompt (se auto-edita)
+    └── test.md       ← archivo de prueba
+
+Para probarlo:
+
+Ejecuta python main.py
+Pídele algo que sepa hacer mal (ej: "Crea un archivo con contenido en binario")
+Escribe incorrecto
+Mira cómo se reescribe su self.md
+Pídele lo mismo de nuevo → ahora lo hace mejor
+Eso es un agente que se soporta a sí mismo. Cada vez que falla, se mejora. Y tú aprendes viendo cómo se reescribe.

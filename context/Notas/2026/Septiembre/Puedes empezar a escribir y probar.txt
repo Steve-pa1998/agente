@@ -1,0 +1,14 @@
+Puedes empezar a escribir y probar código de inmediato en tu navegador mediante el Compilador de C++ en línea - Online GBD o el enterno de pruebas de Shell de C++
+
+¿Qué es C++?
+
+C++ es un lenguaje de programación de un propósito general creado por Bjarne Stourstrup en 1979 como una extensión del lenguaje C. Combina la eficiencia de C con herramientas para la programación orientada a objetos. 
+
+
+Características principales 
+
+Alto rendimiento: Es uno de los lenguajes más rápidos y efficientes.
+
+Control de hardware: Permite gestionar la memoria y los recursos del sistema de forma directa. 
+
+Multiparadigma: Soporta programación estructurada, orientada a objetos y genérica.   

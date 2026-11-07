@@ -1,0 +1,25 @@
+{
+  "font": "Inter",
+  "weight": "SemiBold",
+  "size": 48,
+  "color": "#E8F4FD",
+  "outline": {
+    "color": "#0A1628",
+    "width": 4
+  },
+  "position": {
+    "x": 540,
+    "y": 1400,
+    "anchor": "middle"
+  },
+  "max_lines": 3,
+  "max_chars_per_line": 24,
+  "fade_ms": 200,
+  "background": {
+    "enabled": true,
+    "color": "#0A1628",
+    "opacity": 0.7,
+    "border_radius": 12,
+    "padding": 16
+  }
+}   

@@ -1,0 +1,9 @@
+social_agents/
+├── config.py
+├── agents/
+│   ├── __init__.py
+│   ├── facebook_agent.py
+│   ├── instagram_agent.py
+│   └── x_agent.py
+├── main.py
+└── .env   

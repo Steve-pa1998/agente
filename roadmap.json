@@ -1,0 +1,4 @@
+[
+  {"task": "leads", "agent": "agentes_leads", "intervalo_h": 12},
+  {"task": "propuestas", "agent": "agente_propuestas", "intervalo_h": 12}
+]

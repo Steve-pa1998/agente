@@ -1,0 +1,4 @@
+env variable → environment variable
+env command (Unix/Linux) → prints all environment variables
+venv → virtual environment
+.env file → a file storing environment variables (common in web dev)

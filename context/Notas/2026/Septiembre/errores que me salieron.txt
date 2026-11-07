@@ -1,0 +1,58 @@
+errores que me salieron
+Set-Location: No se encuentra la ruta de acceso 'C:\Users\Steve\Desktop\tienda-api>' porque no existe.
+
+PS C:\Users\Steve\Desktop> cd C:\Users\Steve\Desktop\tienda-api>
+Set-Location: No se encuentra la ruta de acceso 'C:\Users\Steve\Desktop\tienda-api>' porque no existe.
+PS C:\Users\Steve\Desktop> cd C:\Users\Steve\Desktop\tienda-api
+PS C:\Users\Steve\Desktop\tienda-api> @" fastapi==0.115.6 uvicorn[standard]==0.34.0 psycopg[binary]==3.2.6 python-dotenv==1.0.1 "@ | Set-Content -Encoding utf8 requierments.txt
+ParserError:
+Line |
+   1 |  @" fastapi==0.115.6 uvicorn[standard]==0.34.0 psycopg[binary]==3.2.6  …
+     |     ~
+     | No se permiten caracteres después de un encabezado here-string, pero antes del final de la línea.
+PS C:\Users\Steve\Desktop\tienda-api> @"fastapi==0.115.6uvicorn[standard]==0.34.0psycopg[binary]==3.2.6python-dotenv==1.0.1"@ | Set-Content -Encoding utf8 requirements.txt
+ParserError:
+Line |
+   1 |  @"fastapi==0.115.6uvicorn[standard]==0.34.0psycopg[binary]==3.2.6pyth …
+     |    ~
+     | No se permiten caracteres después de un encabezado here-string, pero antes del final de la línea.
+PS C:\Users\Steve\Desktop\tienda-api> @"fastapi==0.115.6uvicorn[standard]==0.34.0psycopg[binary]==3.2.6python-dotenv==1.0.1"@ | Set-Content -Encoding utf8 requirements.txt
+ParserError:
+Line |
+   1 |  @"fastapi==0.115.6uvicorn[standard]==0.34.0psycopg[binary]==3.2.6pyth …
+     |    ~
+     | No se permiten caracteres después de un encabezado here-string, pero antes del final de la línea.
+PS C:\Users\Steve\Desktop\tienda-api> @"
+>> fastapi==0.115.6uvicorn[standard]==0.34.0psycopg[binary]==3.2.6python-dotenv==1.0.1"@ | Set-Content -Encoding utf8 requirements.txt^C
+PS C:\Users\Steve\Desktop\tienda-api> ^C
+SOLUCION
+PS C:\Users\Steve\Desktop\tienda-api> notepad requierments.txt
+
+ERROR 
+este fue por no instalar el python antes 
+
+PS C:\Users\Steve\Desktop\tienda-api> py -3 -m venv .venv
+py: El término "py" no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable.
+Compruebe la ortografía del nombre o, si se incluyó una ruta de acceso, compruebe que la ruta de acceso es correcta e inténtelo de nuevo.
+
+[General Feedback]
+  Los comandos más similares son:
+    ➤ ps, P:
+
+PS C:\Users\Steve\Desktop\tienda-api> .\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1: El término ".\.venv\Scripts\Activate.ps1" no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable.
+Compruebe la ortografía del nombre o, si se incluyó una ruta de acceso, compruebe que la ruta de acceso es correcta e inténtelo de nuevo.
+PS C:\Users\Steve\Desktop\tienda-api> Set_ExecutionPolicy -Scope CurrentUser RemoteSigned .\.venv\Scripts\Activate.ps1
+Set_ExecutionPolicy: El término "Set_ExecutionPolicy" no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable.
+Compruebe la ortografía del nombre o, si se incluyó una ruta de acceso, compruebe que la ruta de acceso es correcta e inténtelo de nuevo.
+
+[General Feedback]
+  Los comandos más similares son:
+    ➤ Set-ExecutionPolicy
+
+PS C:\Users\Steve\Desktop\tienda-api> cd C:\Users\Steve\Desktop\tienda-api python --version
+Set-Location: No se encuentra ningún parámetro posicional que acepte el argumento "python".
+PS C:\Users\Steve\Desktop\tienda-api> .\.venv\Scripts\python.exe -m pip install -r requierments.txt .\.venv\Scripts\pyhton.exe -m uvicorn main:app --reload
+.\.venv\Scripts\python.exe: El término ".\.venv\Scripts\python.exe" no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable.
+Compruebe la ortografía del nombre o, si se incluyó una ruta de acceso, compruebe que la ruta de acceso es correcta e inténtelo de nuevo.
+PS C:\Users\Steve\Desktop\tienda-api>

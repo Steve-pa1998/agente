@@ -1,0 +1,21 @@
+CHECKLIST - Freelance
+=====================
+
+[x] Plantillas (plantillas.txt)
+[x] Perfil en Workana (esperando aprobación)
+[x] 3 scripts para GitHub:
+    [x] scraper.py
+    [x] organizador.py
+    [x] convertidor.py
+[x] README de cada script (usar Agente 3)
+[x] Subir a GitHub
+[ ] Enlazar GitHub en perfil de Workana
+[ ] Primeras 3-5 propuestas
+
+Estructura de carpetas:
+freelance\
+├── plantillas.txt
+├── checklist.txt        ← este archivo
+├── portafolio\
+├── jales\
+└── entregables\   

@@ -1,0 +1,180 @@
+{
+  "messages": [
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-05T09:38:31.698297",
+      "estado": "generadas_3",
+      "problema": null,
+      "propuesta": "Nuevas encuestas listas para responder",
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-05T09:38:31.698860",
+      "estado": "ciclo_completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total\": 3, \"pendientes\": 3, \"resultados\": 0}"
+    },
+    {
+      "agent": "leads",
+      "timestamp": "2026-11-05T09:38:31.700616",
+      "estado": "error",
+      "problema": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Steve\\\\Desktop\\\\agente\\\\agents\\\\agentes_leads.py'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-05T09:38:31.704783",
+      "estado": "sin_leads",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"pendientes\": 0}"
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-05T09:40:20.289029",
+      "estado": "sin_leads",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"pendientes\": 0}"
+    },
+    {
+      "agent": "agentes_leads",
+      "timestamp": "2026-11-05T11:23:45.221495",
+      "estado": "sin_resultados",
+      "problema": "No se encontraron leads relevantes",
+      "propuesta": null,
+      "resultado": "{\"total_scrapeados\": 0, \"nuevos\": 0, \"archivo\": \"data\\\\leads.json\", \"tiempo_segundos\": 51.0}"
+    },
+    {
+      "agent": "agentes_leads",
+      "timestamp": "2026-11-05T11:35:44.449429",
+      "estado": "completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total_scrapeados\": 7, \"nuevos\": 7, \"archivo\": \"data/leads.json\", \"tiempo_segundos\": 62.5}"
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-05T11:38:01.060866",
+      "estado": "generadas_3",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"generadas\": 3, \"pendientes\": 4}"
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-05T12:32:28.399729",
+      "estado": "generadas_3",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"generadas\": 3, \"pendientes\": 1}"
+    },
+    {
+      "agent": "agentes_leads",
+      "timestamp": "2026-11-05T12:33:43.387818",
+      "estado": "completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total_scrapeados\": 7, \"nuevos\": 0, \"archivo\": \"data/leads.json\", \"tiempo_segundos\": 63.7}"
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-05T15:39:23.681625",
+      "estado": "error",
+      "problema": "Unterminated string starting at: line 34 column 7 (char 1091)",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-05T15:39:23.682230",
+      "estado": "ciclo_completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total\": 3, \"pendientes\": 3, \"resultados\": 0}"
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-07T12:41:35.351138",
+      "estado": "error",
+      "problema": "No module named 'agents_'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "leads",
+      "timestamp": "2026-11-07T12:41:35.355525",
+      "estado": "error",
+      "problema": "'NoneType' object has no attribute '__dict__'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-07T12:41:35.358752",
+      "estado": "error",
+      "problema": "No module named 'agents_'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-07T12:53:44.049697",
+      "estado": "error",
+      "problema": "No module named 'agents_'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "leads",
+      "timestamp": "2026-11-07T12:53:44.051707",
+      "estado": "error",
+      "problema": "'NoneType' object has no attribute '__dict__'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-07T12:53:44.054363",
+      "estado": "error",
+      "problema": "No module named 'agents_'",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-07T13:04:35.439543",
+      "estado": "error",
+      "problema": "cannot import name 'GroqConfig' from 'social_agents.config' (C:\\Users\\Steve\\Desktop\\agente\\social_agents\\config.py)",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-07T13:04:35.444075",
+      "estado": "error",
+      "problema": "cannot import name 'GroqConfig' from 'social_agents.config' (C:\\Users\\Steve\\Desktop\\agente\\social_agents\\config.py)",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-07T13:19:58.460141",
+      "estado": "error",
+      "problema": "cannot import name 'GroqConfig' from 'social_agents.config' (C:\\Users\\Steve\\Desktop\\agente\\social_agents\\config.py)",
+      "propuesta": null,
+      "resultado": null
+    },
+    {
+      "agent": "propuestas",
+      "timestamp": "2026-11-07T13:19:58.465808",
+      "estado": "error",
+      "problema": "cannot import name 'GroqConfig' from 'social_agents.config' (C:\\Users\\Steve\\Desktop\\agente\\social_agents\\config.py)",
+      "propuesta": null,
+      "resultado": null
+    }
+  ]
+}

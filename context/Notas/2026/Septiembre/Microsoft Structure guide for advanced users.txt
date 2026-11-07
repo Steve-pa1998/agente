@@ -1,0 +1,164 @@
+For more official guidance on navigating these structures, read the Microsoft Learn Registry Guide for Advanced Users. [1] (https://learn.microsoft.com/es-es/troubleshoot/windows-server/performance/windows-registry-advanced-users)
+
+
+
+
+
+What is HKEY_LOCAL_MACHINE used for?
+Visión general creada por IA
+HKEY_LOCAL_MACHINE (often abbreviated as HKLM) is a primary root key in the Windows Registry that stores computer-wide configuration settings, hardware data, and software options shared by all users. 
+
+YouTube
+·ThioJoe
+ +2
+Core Uses of HKEY_LOCAL_MACHINE
+Hardware Configurations: Stores information regarding physical components, device drivers, and Plug and Play settings detected by the system under subkeys like HARDWARE and DRIVERS. 
+
+Lifewire
+ +1
+System Boot and Control: Retains crucial startup parameters, kernel configurations, and Windows services data under subkeys like SYSTEM. 
+
+Medium
+·Shlomi Boutnaru, Ph.D.
+ +1
+Installed Software Settings: Holds machine-wide application settings, file associations, and paths under the SOFTWARE subkey, applying to every user account on the machine. 
+
+Reddit
+·r/windows
+ +2
+Security and Accounts: Manages local security policies, user account information, and access control lists via hidden or restricted subkeys like SAM and SECURITY. 
+
+Wikipedia
+ +1
+Read more about advanced management in the Microsoft Learn Registry Guide. 
+
+
+
+
+What does the HKEY_CURRENT_USER hive in the Windows Registry Store?
+Visión general creada por IA
+The HKEY_CURRENT_USER (HKCU) hive stores configuration and preference data specific to the user currently logged into the Windows system. 
+
+Microsoft Learn
+ +1
+What It Stores
+Desktop Preferences: Screen colors, window sizes, and desktop wallpaper settings.
+Control Panel Settings: Personalizations, mouse configurations, and accessibility choices.
+Application Settings: Software preferences, user-specific program configurations, and recent file lists for apps tied to the user account.
+Environment & Connections: Network connections, mapped drives, and installed printers. 
+
+Microsoft Learn
+ +3
+How It Works
+Active Link: HKCU acts as a dynamic pointer or shortcut to the specific user profile section located inside HKEY_USERS (specifically matching that user's Security ID or SID).
+Physical File: The data displayed in this hive maps directly to the NTUSER.DAT file found inside the profile folder of the active user (C:\Users\<Username>). 
+
+Reddit
+·r/sysadmin
+ +2
+
+
+
+
+In which registry hive does Windows store files a user has recently accessed?
+Visión general creada por IA
+Windows stores recently accessed files and user activity in the NTUSER.DAT registry hive (mapped live as HKEY_CURRENT_USER). 
+
+Cyber Triage
+ +1
+Location and Path
+On-Disk File Path: C:\Users\<Username>\NTUSER.DAT
+Registry Path: Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs 
+
+Course Hero
+ +1
+Key Artifacts for Recently Accessed Files
+Within the NTUSER.DAT hive, Windows tracks file access through specific subkeys (often called MRU or Most Recently Used lists):
+RecentDocs: Tracks general files opened by the user, broken down by file extension.
+OpenSaveMRU: Records the last files opened or saved using standard dialog boxes per file extension.
+LastVisitedMRU: Tracks folders and paths recently accessed by applications. 
+
+Cyber Triage
+ +1
+
+
+
+How to remove the registry of uninstalled programs?
+Visión general creada por IA
+To remove registry entries for uninstalled software, you can manually delete them using the built-in Registry Editor or use a specialized third-party uninstaller.
+Back Up the Registry First
+Always create a backup before changing the registry. A mistake can cause system errors. 
+
+Microsoft Community Hub
+ +1
+Press Win + R, type regedit, and press Enter.
+Click File and then Export.
+Choose All for the export range, name the file, and save it. 
+
+Microsoft Community Hub
+Method 1: Manually Search and Delete Leftovers
+Open the Registry Editor by typing regedit in the Run window (Win + R).
+Press Ctrl + F to open the Find menu.
+Type the name of the uninstalled software and click Find Next.
+Carefully verify that the highlighted key belongs to the uninstalled program (check the publisher or folder name).
+Right-click the key and select Delete.
+Press F3 to search for the next matching entry and repeat the deletion. 
+
+Blackview Official Store
+ +1
+Method 2: Clean the Uninstall List
+If the program still shows up in your system's app list even though it is removed:
+Open regedit.
+Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall (and check HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall on 64-bit systems).
+Look through the subkeys on the left and check the DisplayName or UninstallString on the right to identify the residual entry.
+Right-click the key and select Delete. 
+
+Stack Overflow
+ +2
+Method 3: Use Third-Party Uninstallers
+If manual deletion feels too complicated or risky, you can use specialized tools like Revo Uninstaller or Bulk Crap Uninstaller. These tools automatically scan for and safely remove leftover files and registry traces after an app is uninstalled.
+
+
+
+
+How can I delete a registry key that cannot be deleted?
+Visión general creada por IA
+To delete a stubborn registry key in Windows, you usually need to change its ownership and permissions. 
+
+Super User
+ +2
+Change Ownership and Permissions
+Open the Start menu, type regedit, and press Enter.
+Find the key you want to delete.
+Right-click the key and select Permissions.
+Click the Advanced button.
+Next to the owner name at the top, click Change.
+Type Administrators (or your user name) in the box, click Check Names, and click OK.
+Check the box that says Replace owner on subcontainers and objects. Click Apply.
+Select Full Control for the Administrators group or Everyone, then click OK.
+Try deleting the key again. 
+
+YouTube
+·Stefan Van Damme
+ +2
+Watch this step-by-step video guide on how to change permissions and ownership to delete stubborn registry keys:
+
+2:09
+'Error while deleting key' in Regedit? Here's the Fix
+6.8 K reproducciones · hace 1 año
+
+YouTube · Stefan Van Damme
+Fix Embedded Null Characters
+If you still see an "Error while deleting key" message, the key might contain a hidden null character. 
+
+Microsoft Learn
+Download the official Sysinternals RegDelNull tool from Microsoft.
+Open Command Prompt as an Administrator.
+Run the tool targeting your specific path to find and remove the hidden characters. 
+
+Microsoft Learn
+ +1
+
+
+
+

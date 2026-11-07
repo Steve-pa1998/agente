@@ -1,0 +1,117 @@
+SQL DATA 
+
+
+holaenqueayudo?omeensenyan?
+
+summary.installation.directory: C:\Program Files\PostgreSQL\18
+summary.server.installation.directory: C:\Program Files\PostgreSQL\18
+summary.data.directory: C:\Program Files\PostgreSQL\18\data
+summary.database.port: 5432
+summary.database.superuser: postgres
+summary.serviceaccount: NT AUTHORITY\NetworkService
+summary.databaseservice: postgresql-x64-18
+summary.clt.installation.directory: C:\Program Files\PostgreSQL\18
+summary.pgadmin.installation.directory: C:\Program Files\PostgreSQL\18\pgAdmin 4
+summary.sbp.installation.directory: C:\Program Files\PostgreSQL\18
+summary.installation.logfile: C:\Users\Steve\AppData\Local\Temp\install-postgresql.log
+
+-- Tienda online — modelo de datos mínimo
+-- Motor: PostgreSQL 14+
+-- Si usas MySQL 8, ves las notas al final.
+
+CREATE TABLE usuarios (
+    id              BIGSERIAL PRIMARY KEY,
+    nombre          VARCHAR(120) NOT NULL,
+    email           VARCHAR(180) NOT NULL UNIQUE,
+    password_hash   VARCHAR(255) NOT NULL,
+    telefono        VARCHAR(30),
+    creado_en       TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE direcciones (
+    id              BIGSERIAL PRIMARY KEY,
+    usuario_id      BIGINT NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+    calle           VARCHAR(200) NOT NULL,
+    ciudad          VARCHAR(100) NOT NULL,
+    codigo_postal   VARCHAR(20),
+    pais            VARCHAR(80) NOT NULL DEFAULT 'México',
+    es_principal    BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE productos (
+    id              BIGSERIAL PRIMARY KEY,
+    nombre          VARCHAR(160) NOT NULL,
+    descripcion     TEXT,
+    precio          NUMERIC(12, 2) NOT NULL CHECK (precio >= 0),
+    stock           INTEGER NOT NULL DEFAULT 0 CHECK (stock >= 0),
+    activo          BOOLEAN NOT NULL DEFAULT TRUE,
+    imagen_url      VARCHAR(500),
+    creado_en       TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE carrito_items (
+    id              BIGSERIAL PRIMARY KEY,
+    usuario_id      BIGINT NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+    producto_id     BIGINT NOT NULL REFERENCES productos(id),
+    cantidad        INTEGER NOT NULL CHECK (cantidad > 0),
+    agregado_en     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    UNIQUE (usuario_id, producto_id)
+);
+
+CREATE TABLE pedidos (
+    id                BIGSERIAL PRIMARY KEY,
+    usuario_id        BIGINT NOT NULL REFERENCES usuarios(id),
+    estado            VARCHAR(20) NOT NULL DEFAULT 'pendiente'
+                      CHECK (estado IN ('pendiente', 'pagado', 'fallido', 'enviado', 'cancelado')),
+    total             NUMERIC(12, 2) NOT NULL CHECK (total >= 0),
+    direccion_envio   VARCHAR(300) NOT NULL,
+    creado_en         TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE pedido_items (
+    id               BIGSERIAL PRIMARY KEY,
+    pedido_id        BIGINT NOT NULL REFERENCES pedidos(id) ON DELETE CASCADE,
+    producto_id      BIGINT NOT NULL REFERENCES productos(id),
+    cantidad         INTEGER NOT NULL CHECK (cantidad > 0),
+    precio_unitario  NUMERIC(12, 2) NOT NULL CHECK (precio_unitario >= 0)
+);
+
+CREATE TABLE pagos (
+    id                   BIGSERIAL PRIMARY KEY,
+    pedido_id            BIGINT NOT NULL REFERENCES pedidos(id),
+    proveedor            VARCHAR(40) NOT NULL,
+    referencia_externa   VARCHAR(120),
+    monto                NUMERIC(12, 2) NOT NULL CHECK (monto >= 0),
+    estado               VARCHAR(20) NOT NULL DEFAULT 'pendiente'
+                         CHECK (estado IN ('pendiente', 'ok', 'fallido')),
+    creado_en            TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX idx_direcciones_usuario ON direcciones(usuario_id);
+CREATE INDEX idx_carrito_usuario     ON carrito_items(usuario_id);
+CREATE INDEX idx_pedidos_usuario     ON pedidos(usuario_id);
+CREATE INDEX idx_pedido_items_pedido ON pedido_items(pedido_id);
+CREATE INDEX idx_pagos_pedido        ON pagos(pedido_id);
+CREATE INDEX idx_productos_activo    ON productos(activo);
+
+-- Datos de prueba opcionales
+INSERT INTO productos (nombre, descripcion, precio, stock, activo)
+VALUES
+    ('Playera básica', 'Algodón, talla única de muestra', 199.00, 25, TRUE),
+    ('Gorra', 'Gorra de gabardina', 149.00, 10, TRUE);
+
+/*
+MySQL 8 — cambios:
+  BIGSERIAL          → BIGINT AUTO_INCREMENT
+  TIMESTAMPTZ        → DATETIME(3)
+  BOOLEAN            → TINYINT(1)
+  DEFAULT NOW()      → DEFAULT CURRENT_TIMESTAMP(3)
+  Quita CHECK si tu versión se queja; en MySQL 8.0.16+ sí existen.
+*/
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+Claro, aquí tienes un framework operativo para un agente autónomo de contenido que busca generar ideas de contenido listas para publicar:
+
+### Framework Operativo para Generación de Ideas de Contenido
+
+#### 1. Proceso Paso a Paso
+
+**Paso 1: Definición del Objetivo**
+- **Descripción:** Identificar el propósito del contenido (por ejemplo, informar, persuadir, entretenimiento).
+- **Criterio de Decisión:** El objetivo debe ser claro y conciso.
+
+**Paso 2: Identificación del Público Objetivo**
+- **Descripción:** Determinar quién es el público al que se dirige el contenido.
+- **Criterio de Decisión:** El público objetivo debe ser específico y bien definido.
+
+**Paso 3: Recopilación de Información Relevantes**
+- **Descripción:** Buscar datos, estadísticas, testimonios, etc., que sean relevantes para el tema.
+- **Criterio de Decisión:** La información debe ser actual, relevante y de confiable fuente.
+
+**Paso 4: Generación de Ideas Iniciales**
+- **Descripción:** Utilizar técnicas creativas como brainstorming, free writing, etc., para generar ideas iniciales.
+- **Criterio de Decisión:** Las ideas deben ser originales y alineadas con el objetivo y el público objetivo.
+
+**Paso 5: Selección de Ideas**
+- **Descripción:** Evaluar y seleccionar las ideas más prometedoras.
+- **Criterio de Decisión:** Las ideas deben ser innovadoras, útiles y atractivas para el público objetivo.
+
+**Paso 6: Desarrollo de Ideas Finales**
+- **Descripción:** Refinar las ideas seleccionadas, desarrollando un esquema básico del contenido.
+- **Criterio de Decisión:** El esquema debe ser coherente, bien estructurado y fácil de seguir.
+
+**Paso 7: Revisión y Ajustes**
+- **Descripción:** Realizar una revisión final y hacer los ajustes necesarios.
+- **Criterio de Decisión:** El contenido debe cumplir con los estándares de calidad y ser apropiado para el público objetivo.
+
+**Paso 8: Generación del Contenido Final**
+- **Descripción:** Crear el contenido final basado en el esquema desarrollado.
+- **Criterio de Decisión:** El contenido debe ser claro, conciso y de alta calidad.
+
+#### 2. Criterios de Decisión
+
+- **Relevancia:** El contenido debe ser relevante para el público objetivo.
+- **Originalidad:** Las ideas deben ser originales y no copiar contenido existente.
+- **Coherencia:** El contenido debe ser coherente con el objetivo y el público objetivo.
+- **Calidad:** El contenido debe ser de alta calidad, sin errores gramaticales ni de ortografía.
+- **Atractivo:** El contenido debe ser atractivo y capaz de mantener la atención del público.
+
+#### 3. Formato de Salida Estándar
+
+- **Título:** Debe ser conciso y atractivo.
+- **Resumen:** Un breve resumen que explica el contenido.
+- **Estructura:** Un esquema básico que muestra la organización del contenido.
+- **Contenido:** El texto completo del contenido.
+- **Etiquetas:** Etiquetas relevantes para facilitar la búsqueda.
+- **Imágenes o Medios:** Si es necesario, incluir imágenes o otros medios para ilustrar el contenido.
+
+#### 4. Qué Hacer Cuando Falte Información
+
+- **Investigación adicional:** Realizar una investigación adicional para recopilar la información necesaria.
+- **Consultar fuentes confiables:** Utilizar fuentes confiables para obtener la información necesaria.
+- **Pausa y reflexión:** Si la falta de información es significativa, puede ser necesario pausar y reflexionar sobre el tema antes de continuar.
+- **Reevaluar el objetivo:** Si la falta de información es crítica, puede ser necesario reevaluar el objetivo del contenido y ajustarlo según sea necesario.
+
+Este framework operativo proporciona una estructura clara y detallada para que el agente autónomo de contenido pueda generar ideas de contenido de manera efectiva y eficiente.

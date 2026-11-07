@@ -1,0 +1,151 @@
+PYTHON 
+
+SYNTAX ERROR: It's a Python error that means the interpreter encountered code that violates Python's grammar rules — it literally cannot parse/understand what you wrote.  It's raised during parsing, before execution begins.
+
+Common causes:
+
+Missing colon : after if, for, while, def, etc.
+Unmatched parentheses (), brackets [], braces {}, or quotes
+Misspelled or misused keywords (e.g., using class as a variable name)
+Incorrect indentation
+Missing or extra symbols (e.g., using = instead of == in a condition) 
+Tip: The line Python points to isn't always where the actual mistake is — often the real problem is on the previous line (e.g., an unclosed parenthesis). Always check the line above the reported error. 
+
+
+
+
+
+This error means you have a mismatched pair of brackets in your code.  Specifically, the opening symbol is a parenthesis (, but the code expects it to be closed by another parenthesis ).  Instead, it encountered a curly brace }. 
+
+To fix this:
+
+Check Line 56: Look for an opening ( that might be incorrectly closed with a }. 
+Look Upward: The error often points to the closing mismatch, but the actual problem is the opening bracket on an earlier line (possibly before line 56) that was never properly closed. 
+Verify Structure: Ensure that every ( has a matching ) and every { has a matching }. For example, x = (1, 2} is invalid because the ( requires a ), not a }. 
+Example of the error:
+
+x = (1, 2, 3}  # SyntaxError: closing parenthesis '}' does not match opening parenthesis '('
+
+The fix:
+
+x = (1, 2, 3)  # Correct: parenthesis matches parenthesis
+# OR
+x = {1, 2, 3}  # Correct: curly brace matches curly brace
+
+
+
+
+Python 3 has 35 keywords:
+
+False, None, True, and, as, assert, async, await, break, class,
+continue, def, del, elif, else, except, finally, for, from, global,
+if, import, in, is, lambda, nonlocal, not, or, pass, raise, return,
+try, while, with, yield
+
+
+They fall into a few categories:
+
+Category	Examples
+Conditionals	if, elif, else
+Loops	for, while, break, continue
+Functions/Classes	def, class, return, lambda, yield
+Exception handling	try, except, finally, raise
+Boolean / logic	and, or, not, True, False, None
+Importing	import, from, as
+Scope	global, nonlocal
+Async	async, await
+Other	pass, del, with, assert, is, in
+
+
+A class is a blueprint for creating objects. It bundles data (attributes) and behavior (methods) together.
+
+class Dog:
+    # Class-level attribute (shared by all instances)
+    species = "Canis familiaris"
+
+    # Constructor (called when you create an instance)
+    def __init__(self, name, age):
+        self.name = name      # instance attribute
+        self.age = age
+
+    # Method (behavior)
+    def bark(self):
+        return f"{self.name} says woof!"
+
+    def info(self):
+        return f"{self.name}, {self.age} years old"
+
+Key parts:
+Part	Meaning
+class Dog:	Declares a new type called Dog
+__init__	The constructor — runs automatically when you create an instance
+self	Refers to the specific instance (the object being created)
+self.name	An instance attribute — unique to each object
+Dog.species	A class attribute — shared across all instances
+def bark(self)	A method — a function that belongs to the class
+
+Creating an object:
+rex = Dog("Rex", 3)
+print(rex.bark())    # "Rex says woof!"
+print(rex.info())    # "Rex, 3 years old"
+print(rex.species)   # "Canis familiaris"
+
+Why use classes?
+Organization — group related data + behavior
+Reusability — create many objects from one blueprint
+Encapsulation — hide internal details, expose a clean interface
+Inheritance — create new classes that extend existing ones
+class Puppy(Dog):          # inherits from Dog
+    def __init__(self, name):
+        super().__init__(name, age=0)  # call parent constructor
+
+
+1. Variables & Data Types
+Variables are labels for values. No type declaration needed — Python figures it out:
+
+name = "Alex"        # str (text)
+age = 25             # int (whole number)
+height = 1.75        # float (decimal)
+is_student = True    # bool (True/False)
+
+2. Input & Output
+print("Hello, World!")          # output
+name = input("What's your name?")  # input (always returns a string)
+age = int(input("Age: "))       # convert to number
+
+3. Conditionals (Decision-making)
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teen")
+else:
+    print("Child")
+
+4. Loops (Repetition)
+# for loop — go through items
+for fruit in ["apple", "banana", "cherry"]:
+    print(fruit)
+
+# while loop — repeat while condition is true
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+5. Functions (Reusable code blocks)
+def greet(name):
+    return f"Hi, {name}!"
+
+print(greet("Alex"))  # "Hi, Alex!"
+
+6. Lists & Dictionaries (Grouping data)
+# List — ordered, indexed
+colors = ["red", "green", "blue"]
+print(colors[0])      # "red"
+colors.append("yellow")
+
+# Dictionary — key → value pairs
+person = {"name": "Alex", "age": 25}
+print(person["name"]) # "Alex"
+
+Suggested order to learn: variables → strings → conditionals → loops → functions → lists → dictionaries. Each builds on the last. 

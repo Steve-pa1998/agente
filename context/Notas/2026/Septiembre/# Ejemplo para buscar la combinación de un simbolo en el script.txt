@@ -1,0 +1,15 @@
+# Ejemplo para buscar la combinación de un símbolo en el script
+def buscar_atajo(nombre_simbolo):
+    simbolo = simbolos_codigo_extra.get(nombre_simbolo)
+    if simbolo:
+        return f"El símbolo '{simbolo['caracter']}' sirve para: {simbolo['descripcion']}. Se escribe con: {simbolo['combinacion']}"
+    return "Símbolo no encontrado."
+
+print(buscar_atajo("pipe_barra_vertical"))
+
+
+// Ejemplo de uso para imprimir un atajo en consola
+console.log(`Para escribir ${atajosTecladoCodigo.barraInvertida.caracter} usa: ${atajosTecladoCodigo.barraInvertida.espanayLatam}`);
+
+
+

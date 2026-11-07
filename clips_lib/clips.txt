@@ -1,0 +1,8 @@
+agente/
+├── clips_scheduler.py
+├── clips_lib/          ← tu código (paquete Python)
+│   ├── __init__.py
+│   ├── downloader.py
+│   ├── editor.py
+│   └── postear.py
+└── clips/              ← donde se guardan los .mp4 (vacía por ahora)   

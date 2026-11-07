@@ -1,0 +1,60 @@
+Building Evolutionary Architectures: https://amzn.to/337bPwj
+Cracking the Coding Interview: https://amzn.to/3cEvabk
+Building Microservices: Designing Fine-Grained Systems: https://amzn.to/3ibsQtg
+
+
+Otros:
+Software Architecture Patterns: https://www.oreilly.com/programming/f...
+Martin Fowler's Architecture Post: https://martinfowler.com/architecture/
+10 Common Software Architectural Patterns in a Nutshell: https://towardsdatascience.com/10-com...
+CAP Twelve Years Later How the Rules Have Changed: https://www.infoq.com/articles/cap-tw...
+Scalable System Design Patterns: http://horicky.blogspot.com/2010/10/s...
+Design Scalable Systems: https://hexadix.com/design-scalable-s...
+CAP Theorem (IBM article): https://www.ibm.com/cloud/learn/cap-t...
+
+
+
+
+Inicio		
+->U: Ver catálogo / ficha de producto 
+-> U:Agregar al carrito 
+-> L: ¿Hay stock?
+No -> U: Aviso “sin stock” -> fin o volver
+Sí -> D: Guardar / actualizar carrito 
+-> U: Ver carrito 
+-> U: Ir a checkout
+-> U: Datos de envío + método de pago 
+-> L: Validar usuario, dirección, total 
+-> L: Reservar stock 
+-> X: Enviar cobre a la pasarela 
+-> ¿Pago ok?
+No -> L: Liberar reserva
+-> U: “Pago falló, reintenta”
+Sí -> D: Crear pedido
+-> D: Descontar inventario
+-> D: Vaciar carrito 
+-> X: correo de confirmación 
+-> U: Pantalla “pedido confirmado”
+fin    
+
+
+id, [PK] bigint 
+email, carácter varying (180)
+
+
+Endpoints (lo que el fronted llama) 
+cada uno es un paso L: de tu flujo:
+Método    Ruta		Que hace 		Tablas
+
+POST     /auth/registro  Crear cuenta           Usuarios
+POST     /auth/login     Entrar                 Usuarios
+GET      /productos      Catálogo               Productos   
+GET      /productos/:id  Ficha                  Productos
+GET      /carrito        Ver carrito            Carrito_item + productos
+POST     /carrito        Agregar (valida stock) Carrito_items, productos
+PATCH    /carrito/:id    Cambiar cantidad       Carrito_items
+DELETE   /carrito/:id    Quitar item            Carrito_items 
+POST     /pedidos        Checkout: reservar stock, crear pedido, cobrar       pedidos,pedidos_items,pagos,productos,carrito_items
+GET      /pedidos        Mis pedidos            Pedidos 
+GET      /pedidos/:id    Detalle + pago         Pedidso, pedido_items, pagos
+   

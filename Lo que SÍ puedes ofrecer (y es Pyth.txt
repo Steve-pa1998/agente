@@ -1,0 +1,10 @@
+Lo que SÍ puedes ofrecer (y es Python real), pero siempre que pregunte primero, y si encuentra algo que 
+Servicio legítimo	Qué hace el agente
+Automatización de leads	Script que scrapea datos públicos (directorios, APIs), los limpia y los mete a una hoja de cálculo o CRM
+Secuencias de email	Script con smtplib o sendgrid que envía emails personalizados a una lista
+Agendador de contenido	Script que publica en redes vía API oficial (no bots, APIs oficiales)
+Landing page + formulario	Script Flask/FastAPI que captura leads
+
+
+
+"Escribe un script en Python que use requests + BeautifulSoup para extraer nombre, email y teléfono de las empresas listadas en [URL del directorio]. Guárdalos en un CSV. Incluye rate limiting para no bloquearme."

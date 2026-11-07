@@ -1,0 +1,88 @@
+[
+  {
+    "id": "enc001",
+    "tema": "Disposición a pagar por soluciones IA",
+    "pregunta": "¿Cuál es el rango de precios que consideras justo por un paquete mensual de automatización de contenido con IA?",
+    "opciones": [
+      "$500 - $800",
+      "$801 - $1200",
+      "$1201 - $1800",
+      "Más de $1800"
+    ],
+    "objetivo": "pricing",
+    "fecha": "2026-11-05T12:00:00Z",
+    "status": "completed",
+    "respuesta": "$801 - $1200"
+  },
+  {
+    "id": "enc002",
+    "tema": "Preferencias de nicho de mercado",
+    "pregunta": "¿En qué sector prefieres que el freelancer ofrezca servicios de IA y automatización de contenido?",
+    "opciones": [
+      "E-commerce y retail",
+      "Educación y e-learning",
+      "Marketing digital y agencias"
+    ],
+    "objetivo": "nicho",
+    "fecha": "2026-11-05T12:00:00Z",
+    "status": "completed",
+    "respuesta": "Marketing digital y agencias"
+  },
+  {
+    "id": "enc003",
+    "tema": "Tipo de contenido automatizado",
+    "pregunta": "¿Qué tipo de contenido te gustaría que se automatizara con IA?",
+    "opciones": [
+      "Artículos de blog",
+      "Publicaciones en redes sociales",
+      "Descripciones de productos",
+      "Newsletters"
+    ],
+    "objetivo": "contenido",
+    "fecha": "2026-11-05T12:00:00Z",
+    "status": "completed",
+    "respuesta": "Publicaciones en redes sociales"
+  },
+  {
+    "id": "enc-001",
+    "tema": "Estrategia de precios para servicios IA",
+    "pregunta": "¿Cuál sería un precio justo mensual por un paquete de automatización de contenido?",
+    "opciones": [
+      "$5,000 MXN",
+      "$7,500 MXN",
+      "$10,000 MXN",
+      "Otro (especificar)"
+    ],
+    "objetivo": "pricing",
+    "fecha": "2026-11-05T08:00:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "enc-002",
+    "tema": "Identificación de nicho de mercado",
+    "pregunta": "¿En qué sector consideras más valioso el uso de IA para crear contenido?",
+    "opciones": [
+      "Marketing digital",
+      "E-commerce",
+      "Educación en línea",
+      "Salud y bienestar"
+    ],
+    "objetivo": "nicho",
+    "fecha": "2026-11-05T09:00:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "enc-003",
+    "tema": "Preferencias de formato de contenido",
+    "pregunta": "¿Qué tipo de contenido automatizado prefieres recibir de un freelancer?",
+    "opciones": [
+      "Artículos de blog",
+      "Publicaciones en redes sociales",
+      "Guiones de video",
+      "Newsletters"
+    ],
+    "objetivo": "contenido",
+    "fecha": "2026-11-05T10:00:00Z",
+    "status": "pending"
+  }
+]

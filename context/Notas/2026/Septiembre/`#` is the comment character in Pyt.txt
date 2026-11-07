@@ -1,0 +1,20 @@
+**`#`** is the **comment** character in Python. Everything after it on a line is ignored by the interpreter — it's just a note for humans reading the code.
+
+```python
+x = 10  # this is a comment, Python ignores it
+print(x)  # prints 10
+```
+
+Use it to explain *why* you did something, not *what* (the code already shows *what*):
+
+```python
+# Convert to int because input() always returns a string
+age = int(input("Age: "))
+```
+
+You can also comment out a line of code temporarily (to "disable" it without deleting it):
+
+```python
+# print("debug: x =", x)
+```
+

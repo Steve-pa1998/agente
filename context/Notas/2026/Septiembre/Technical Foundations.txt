@@ -1,0 +1,75 @@
+Technical Foundations
+
+Write clean, readable code
+
+Understand core data structures and algorithms
+
+Debug errors using logs and documentation
+
+Read error stack traces
+
+Search documentation efficiently
+
+
+ Practical Experience
+
+Build full-stack or standalone projects
+
+Design simple database schemas
+
+Connect frontend to backend APIs
+
+Deploy applications to live servers
+
+Write basic unit tests
+
+
+Collaboration and Workflow
+
+Use Git and GitHub daily
+
+Commit code cleanly
+
+Resolve merge conflicts
+
+Read and understand existing codebases
+
+Communicate technical concepts clearly
+
+
+
+
+Mindset and Resilience
+
+Accept constructive code review feedback
+
+Embrace not knowing the answer immediately
+
+Persist through difficult debugging sessions
+
+If you want, tell me:What technologies or languages you currently use
+
+What projects you have built so far
+
+I can tell you if your portfolio matches current job market expectations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

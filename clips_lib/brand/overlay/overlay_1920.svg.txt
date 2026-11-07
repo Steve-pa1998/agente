@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <!-- Borde superior -->
+  <rect x="0" y="0" width="1920" height="8" fill="#4FC3F7" opacity="0.6"/>
+
+  <!-- Borde inferior -->
+  <rect x="0" y="1072" width="1920" height="8" fill="#4FC3F7" opacity="0.6"/>
+
+  <!-- Borde izquierdo -->
+  <rect x="0" y="0" width="8" height="1080" fill="#4FC3F7" opacity="0.3"/>
+
+  <!-- Borde derecho -->
+  <rect x="1912" y="0" width="8" height="1080" fill="#4FC3F7" opacity="0.3"/>
+
+  <!-- Esquina superior izquierda: espacio para logo -->
+  <circle cx="80" cy="80" r="35" fill="#4FC3F7" opacity="0.5"/>
+
+  <!-- Esquina inferior derecha: marco webcam -->
+  <rect x="1520" y="820" width="360" height="220" rx="16"
+        fill="none" stroke="#4FC3F7" stroke-width="4" opacity="0.8"/>
+
+  <!-- Esquina superior derecha: espacio para alertas -->
+  <rect x="1400" y="40" width="480" height="60" rx="8"
+        fill="#1E3A5F" opacity="0.6"/>
+</svg>   

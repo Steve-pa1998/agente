@@ -1,0 +1,91 @@
+### Framework Operativo para un Agente Autónomo de Publicador
+
+#### Objetivo
+Preparar textos y guías para subir contenido y responder emails.
+
+---
+
+### 1. Proceso Paso a Paso
+
+**Paso 1: Recepción de Tareas**
+- **Entrada:** Recibir tareas a través de un sistema de gestión de tareas (por ejemplo, Trello, Asana).
+- **Acción:** Verificar la tarea para asegurarse de que se proporcionen todos los detalles necesarios.
+
+**Paso 2: Análisis de la Tarea**
+- **Entrada:** Detalles de la tarea (tema, formato, plazo, etc.).
+- **Acción:** 
+  - **Criterios de Análisis:** 
+    - Verificar si se proporciona el tema y el formato requerido.
+    - Verificar si hay un plazo específico.
+    - Verificar si se proporcionan referencias o recursos adicionales.
+  - **Acción:** 
+    - Si la tarea no tiene todos los detalles necesarios, solicitar más información.
+    - Si la tarea está completa, proceder al siguiente paso.
+
+**Paso 3: Investigación y Redacción**
+- **Entrada:** Tema y cualquier material adicional.
+- **Acción:** 
+  - **Criterios de Investigación:** 
+    - Utilizar fuentes confiables para obtener información relevante.
+    - Verificar la precisión y actualidad de la información.
+  - **Acción:** 
+    - Redactar el texto basado en la investigación.
+    - Asegurarse de que el texto cumpla con el formato y estilo requeridos.
+
+**Paso 4: Revisión y Edición**
+- **Entrada:** Texto redactado.
+- **Acción:** 
+  - **Criterios de Revisión:** 
+    - Verificar la coherencia y claridad del texto.
+    - Asegurarse de que el texto cumpla con el formato y estilo requeridos.
+  - **Acción:** 
+    - Realizar ediciones necesarias.
+    - Revisar el texto una vez más para asegurarse de que no haya errores.
+
+**Paso 5: Preparación para Subida**
+- **Entrada:** Texto revisado y aprobado.
+- **Acción:** 
+  - **Criterios de Preparación:** 
+    - Verificar si el texto cumple con los requisitos técnicos (formato, tamaño, etc.).
+    - Asegurarse de que el texto esté optimizado para SEO si es necesario.
+  - **Acción:** 
+    - Preparar el texto para subir al sistema de contenido.
+    - Asegurarse de que toda la información necesaria esté incluida (etiquetas, categorías, etc.).
+
+**Paso 6: Subida del Contenido**
+- **Entrada:** Texto preparado.
+- **Acción:** 
+  - **Criterios de Subida:** 
+    - Verificar que el sistema esté disponible.
+    - Asegurarse de que todos los detalles estén correctos.
+  - **Acción:** 
+    - Subir el texto al sistema de contenido.
+    - Confirmar que el texto se ha subido correctamente.
+
+**Paso 7: Responder Emails**
+- **Entrada:** Emails entrantes.
+- **Acción:** 
+  - **Criterios de Respuesta:** 
+    - Verificar si el email requiere una respuesta inmediata.
+    - Verificar si el email contiene preguntas o solicitudes claras.
+  - **Acción:** 
+    - Responder el email con la información solicitada.
+    - Asegurarse de que la respuesta sea clara y concisa.
+
+**Paso 8: Registro de Tarea**
+- **Entrada:** Tarea completada.
+- **Acción:** 
+  - **Criterios de Registro:** 
+    - Verificar si se necesita documentar la tarea.
+    - Verificar si se necesita informar sobre el estado de la tarea.
+  - **Acción:** 
+    - Registrar la tarea en el sistema de gestión de tareas.
+    - Informar sobre el estado de la tarea si es necesario.
+
+---
+
+### 2. Criterios de Decisión
+
+- **Falta de Información:** Si falta información en la tarea, se debe solicitar a la persona que asignó la tarea.
+- **Formato no Cumplido:** Si el texto no cumple con el formato o estilo requerido, se debe corregir antes de subirlo.
+- **Problemas Técnicos:** Si hay problemas técnicos al subir el contenido,

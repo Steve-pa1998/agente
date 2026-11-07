@@ -1,0 +1,73 @@
+# Clip Plan — Stream de hoy
+
+# Clip Plan — Stream de hoy
+
+## Objetivo
+Generar 5-8 momentos "cortables" (picos de audio > -20dB) que el editor detecte como highlights.
+
+## Setup del stream
+
+### Orden
+1. OBS ON, cámara encendida, micrófono activo
+2. "Oye, antes de entrar hago unos abcs" → **momento intencional #1**
+3. Abdominales (3-5 min) frente a cámara
+4. "Listo, entro al juego" → **momento intencional #2**
+5. TFT / LoL (el stream real)
+
+### Abdominales (lo que genera clips)
+- [ ] Contar en voz alta: "1, 2, 3..." (el editor necesita audio)
+- [ ] Decir un challenge: "si llego a 40, hago X en el juego"
+- [ ] Reaccionar cuando canceles: "no, no, me voy a morir"
+- [ ] NO hacerlo en silencio (silencio = no hay clip)
+- [ ] La cámara te ve → el viewer ve que es real, no un stream "polishado"
+
+### Cámara
+- [ ] Encendida desde el inicio (no la enciendas hasta el juego)
+- [ ] Posición: te vea haciendo los abcs (no solo el escritorio)
+- [ ] En OBS: webcam en esquina inferior derecha (marco cian del overlay)
+- [ ] Durante el juego: la cámara sigue visible (no la apagues)
+
+## Tipos de clips que el editor detecta bien
+- Reacción fuerte (grito, risa, "¡NO!") → pico de audio
+- Kill/win en el juego → cambio brusco de volumen
+- Abdominales: "¡último!" / "no puedo más" → pico
+- Transición abcs → juego → silencio natural (el editor corta ahí)
+- Momento de explicación (hablando rápido, emocionado)
+
+## Checklist durante el stream
+
+### Antes de empezar (5 min)
+- [ ] OBS: Gain +30dB, Noise Gate activo
+- [ ] Micrófono: prueba de voz
+- [ ] Cámara: encendida, te ve
+- [ ] clips_output/ limpio
+- [ ] yt-dlp corriendo en segundo plano
+
+### Durante el stream
+- [ ] Hablar SIEMPRE (aunque sea "voy a intentar esto")
+- [ ] Reaccionar en voz alta a lo que pasa
+- [ ] 1 "momento" intencional cada 15-20 min:
+  - Un challenge para ti mismo
+  - Una predicción ("si pierdo, hago X")
+  - Un cambio brusco de tema
+- [ ] NO usar música de fondo muy fuerte
+- [ ] Silencios naturales entre momentos
+
+### Después del stream (5 min)
+- [ ] Esperar a que Twitch procese el VOD (~15 min)
+- [ ] `python main.py "Procesa clips_lib/clips_output/vod_[ID].mp4"`
+- [ ] Verificar clips no vacíos (> 1MB)
+- [ ] `python main.py "Sube los clips a TikTok"`
+
+## Reglas de oro
+1. Si no hablas, no hay clip.
+2. Si la música tapa tu voz, no hay clip.
+3. Los silencios son tus aliados: el editor corta entre ellos.
+4. 1 momento intencional cada 20 min = 4-5 clips por hora.
+5. Los abcs son tu clip de apertura: siempre los haz con cámara y voz.
+6. No intentes hacer "el clip perfecto". Haz momentos reales.
+
+## Métrica
+- Stream de 2h → mínimo 4 clips, ideal 8
+- Si salen 0 → el audio está mal (revisar Gain/Noise Gate)
+- Si salen 20+ → estás hablando de más (relájate)   

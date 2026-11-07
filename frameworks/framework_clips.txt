@@ -1,0 +1,87 @@
+Para crear un framework operativo claro para un agente autónomo de clips, es importante estructurar el proceso de manera que sea fácil de seguir y adaptable a diferentes situaciones. Aquí tienes un ejemplo de cómo podrías organizarlo:
+
+### Framework Operativo para un Agente Autónomo de Clips
+
+#### 1. Proceso Paso a Paso
+
+**Paso 1: Recepción de la Tarea**
+- **Entrada:** Recibir una solicitud de edición de clips de stream.
+- **Acción:** Confirmar la recepción y registrar la tarea.
+
+**Paso 2: Análisis de la Tarea**
+- **Entrada:** Descripción detallada de la tarea (objetivo, duración, estilo, etc.).
+- **Acción:** Identificar los requisitos específicos y establecer los criterios de calidad.
+
+**Paso 3: Selección de Clips**
+- **Entrada:** Colección de clips de stream.
+- **Acción:** Seleccionar clips que cumplan con los criterios de calidad y objetivos establecidos.
+
+**Paso 4: Edición de Clips**
+- **Entrada:** Clips seleccionados.
+- **Acción:** Realizar la edición según los requisitos (cortes, transiciones, efectos, etc.).
+
+**Paso 5: Revisión y Ajustes**
+- **Entrada:** Clips editados.
+- **Acción:** Realizar una revisión exhaustiva y ajustar según sea necesario.
+
+**Paso 6: Exportación del Clip Final**
+- **Entrada:** Clips revisados y ajustados.
+- **Acción:** Exportar el clip final en el formato solicitado.
+
+**Paso 7: Envío y Confirmación**
+- **Entrada:** Clip final exportado.
+- **Acción:** Enviar el clip final al destinatario y confirmar la recepción.
+
+#### 2. Criterios de Decisión
+
+- **Calidad del Audio y Video:** Los clips deben tener una calidad visual y auditiva aceptable.
+- **Duración:** Los clips deben ajustarse a la duración requerida.
+- **Estilo:** Los clips deben mantener el estilo y tono especificado.
+- **Consistencia:** Los clips deben ser consistentes con el resto del contenido.
+- **Relevancia:** Los clips deben ser relevantes para el objetivo de la tarea.
+
+#### 3. Formato de Salida Estándar
+
+- **Nombre del Archivo:** [Nombre del Proyecto]_[Fecha]_[Hora]_[Versión].mp4
+- **Formato:** MP4
+- **Resolución:** 1080p (Full HD)
+- **Bitrate:** 20 Mbps
+- **Duración:** Ajustada según la tarea
+
+#### 4. Qué Hacer Cuando Falte Información
+
+- **Identificar Falta de Información:** Si falta información crucial, el agente autónomo debe:
+  - **Registrar el Fallo:** Notificar al responsable de la tarea que falta información.
+  - **Solicitar Información:** Solicitar la información faltante al destinatario de la tarea.
+  - **Esperar Respuesta:** Esperar la respuesta del destinatario y actualizar la tarea según sea necesario.
+  - **Continuar con la Tarea:** Una vez que se tenga la información, continuar con el proceso.
+
+### Ejemplo de Flujo de Trabajo
+
+1. **Recepción de la Tarea:**
+   - **Entrada:** Tarea de edición de clips de stream.
+   - **Acción:** Confirmar recepción y registrar tarea.
+
+2. **Análisis de la Tarea:**
+   - **Entrada:** Requisitos de la tarea.
+   - **Acción:** Establecer criterios de calidad y objetivos.
+
+3. **Selección de Clips:**
+   - **Entrada:** Colección de clips de stream.
+   - **Acción:** Seleccionar clips que cumplan con los criterios.
+
+4. **Edición de Clips:**
+   - **Entrada:** Clips seleccionados.
+   - **Acción:** Realizar edición según los requisitos.
+
+5. **Revisión y Ajustes:**
+   - **Entrada:** Clips editados.
+   - **Acción:** Revisar y ajustar según sea necesario.
+
+6. **Exportación del Clip Final:**
+   - **Entrada:** Clips revisados y ajustados.
+   - **Acción:** Exportar clip final en formato MP4, 1080p, 20 Mbps.
+
+7. **Envío y Confirmación:**
+   - **Entrada:** Clip final exportado.
+   - **Acción:** Enviar clip final y confirmar recepción

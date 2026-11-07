@@ -1,0 +1,35 @@
+lo que se logro 
+
+Hicimos el codigo funcionar para los agentes de ollama y los modifique lo mas que pude por el momento intalandoles 
+Langchain
+Vector database sin conexcion
+hicimos el que escribe codigo un experto en C++.. creo 
+Otros 3 para ayudarlo y poder realizar pedidos de workana y fiverr, Freelancer
+y uno ultimo que ayuda a que los 3 esos y el primero se comuniquen para terminar la tarea o jale obtenido atravez de esas plataformas
+Se obtuvo un codigo para el token de git hub repositorys
+se subieron los readmes a git hub... creo 
+creamos cuentas necesarias para las plataformas 
+aprendimos mas de codigo en general de C++ y de python
+Como destinguir entre el C++ y el Python 
+aprendi como debe ir estructurado el data o como debe ir guardado y como se busca cuando esta siendo necio esta madre
+Le pusimos R.A.G alos agentes 
+Savepoints 
+Frameworks
+eliminamos la necesidad de usar ef = en nuestro codigo 
+API gateways
+backend
+textos en documentos de python y de markdown 
+aparte tengo en la base de datos todo lo que se platico hoy o se pregunto a las ia´s
+me bañe 
+hice ejercisio
+
+
+agentes que me faltan
+editores
+marketing
+crear una imgen que respalde mi marca
+toma de datos/ obtencion del algorithmo como tags o palabras claves que utilizan 
+encontrar una manera de imitar los grook bots para que mis agentes sean capazes de postear en redes sociales
+nutricion
+1 qu emaneje emails y llamadas personales 
+

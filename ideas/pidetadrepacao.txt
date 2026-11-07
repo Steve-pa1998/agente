@@ -1,0 +1,9 @@
+Marketing ──genera demanda──▶ Distribución ──vende──▶ Plataforma
+   ▲                              │                        │
+   │                              ▼                        ▼
+   │                         Experiencia cliente    Datos/Analítica
+   │                              │                        │
+   └─────retroalimentación──────┴────────────────────────┘
+              (qué campaña funcionó, qué denominación se
+               vende más, qué canal convierte, dónde se
+               abandona la compra)   

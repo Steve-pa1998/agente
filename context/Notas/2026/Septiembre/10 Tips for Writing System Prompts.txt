@@ -1,0 +1,53 @@
+10 Tips for Writing System Prompts When AI Coding 
+
+System prompt: text that gets prepended to every task you run it gives your aGENT EXTRA  context whoe you are how you like to code what level of explanation you want and how you want you´re Project structered 
+
+Think of it like a "developer profile" that Sculpter uses behind the scenes every time you ask it to do something. 
+
+
+Start with something like 
+
+i´m a guy that would like to be a junior software engineer looking for a job or how to make a system of my own to make money, could you write high quality code but explain it like if i was a junior developer
+
+Next clarify if your doing a quick prototype, or a production ready build. If you´re prototypeing, you can say:
+
+Optimize for simplecity and speed of implementation. skip the tests and focus more on getting a working MVP 
+
+If you´re productionizing, you can say: 
+
+Write production grade code with full test coverage , robust error handling, and slean seperation of concerns.
+
+This Will help Sculpter decide to scaffold out a quick demo or a fully stucterd Project. 
+
+Next, add guidelines around how you want the code stucterd for example you can say 
+
+Componentize UI elements wherever posible, Add to-do comments for unfinshed features, Document features with sconcise explanation, above each defination, follow clean code principles and consistent naming conventions. 
+  
+And the more you define your code filosfy the more Sculptor Will match your team´s actual style.
+
+Next, sometimes have your goals have trade off´s for example speed verus memory usage. 
+
+You can clarify, proiritize execution speed even if implemaentation is more complex or optimize for minimal storage usage even if it slightly increases runtime.  
+
+These cues help agents make consistent design choices across prompts. If you primarly use a certain tech stack like Nex.js, Js, Tailwind, Superbase or Prisma, you should mention it. For example, all front-end components should use React with TypeScript and Tailwind CSS or som,ethinglike use Superbase for suthentication and database operations.
+
+Next if you care about UI details, include guidelines like follow a minimal. clean design asethetic with consistent spacing and responsive layouts.
+
+This Will help the agent keep visual consistency when building front-end features.
+
+You can even shape how the AI talks back to you. So for example, explain your reasing step by step in plain language or keep responses concise, no more  than 10 lines unless asked.
+
+Next is error handling. Many developers always forget to include this, but you can: say: 
+
+always handle Edge cases gracefully and provide feedback values or include defensive programming checks for null, undefined, or unexected date. It may seem obvious to a human but somtiems you need to state the obvious to the AI agent, or it won´t do it consistently. This pushes the agent towards writing more resilient and production safe code. If you´re working in a shared production level codebase, you can instruct the AI agent to generate a small test suite for any new component op API endpoint or include console logs and temporary debug output to vaildate behavior.
+
+I use the second line a lot and it really saves me a lot of time. And lastly, give your tool rules for what not to do as well. This is more useful than you think it is for example
+
+Never expose API keys or secrets or alweys ask for clarification before making destructive changes or default to creating new files rather than modifying existing ones without confirmation.
+
+These rules can help prevent big mistakes when you´re working on a large codebase. So these are 10 examples of what to include in
+
+
+
+
+Componatize for 

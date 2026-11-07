@@ -1,0 +1,23 @@
+{
+  "diagnostico": "Fallos de importación y configuración (agents_, GroqConfig) están bloqueando a los agentes leads, propuestas y encuestas.",
+  "orden": [
+    {
+      "agente": "agentes_leads",
+      "accion": "Mantener estado actual; opcionalmente volver a ejecutar tras corregir leads."
+    },
+    {
+      "agente": "leads",
+      "accion": "Reparar importación (usar paquete correcto) y corregir el error 'NoneType' al generar el objeto; luego reiniciar."
+    },
+    {
+      "agente": "propuestas",
+      "accion": "Corregir la importación del módulo 'agents_' (debe ser 'agents') y volver a lanzar después de arreglar leads."
+    },
+    {
+      "agente": "encuestas",
+      "accion": "Agregar/expotar la clase GroqConfig en social_agents/config.py y arreglar el JSON corrupto; reiniciar tras ello."
+    }
+  ],
+  "alerta": "Sin GroqConfig y con imports rotos, el sistema no puede generar propuestas ni encuestas; corrija inmediatamente.",
+  "voz": "Hay errores de importación; corríjalos para reactivar los agentes."
+}
