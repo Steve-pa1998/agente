@@ -175,6 +175,46 @@
       "problema": "cannot import name 'GroqConfig' from 'social_agents.config' (C:\\Users\\Steve\\Desktop\\agente\\social_agents\\config.py)",
       "propuesta": null,
       "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-09T04:50:57.746888",
+      "estado": "generadas_3",
+      "problema": null,
+      "propuesta": "Nuevas encuestas listas para responder",
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-09T04:50:57.748008",
+      "estado": "ciclo_completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total\": 3, \"pendientes\": 3, \"resultados\": 0}"
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-09T05:00:37.836192",
+      "estado": "generadas_3",
+      "problema": null,
+      "propuesta": "Nuevas encuestas listas para responder",
+      "resultado": null
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-09T05:00:38.541556",
+      "estado": "contestada",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "enc001"
+    },
+    {
+      "agent": "encuestas",
+      "timestamp": "2026-11-09T05:00:38.542289",
+      "estado": "ciclo_completado",
+      "problema": null,
+      "propuesta": null,
+      "resultado": "{\"total\": 6, \"pendientes\": 3, \"resultados\": 1}"
     }
   ]
 }

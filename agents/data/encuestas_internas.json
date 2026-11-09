@@ -10,7 +10,10 @@
     ],
     "objetivo": "pricing",
     "fecha": "2026-11-05T10:00:00Z",
-    "status": "pending"
+    "status": "completed",
+    "respuesta": "$7,001 - $10,000 MXN",
+    "comentario": "Este rango cubre la calidad y personalización que necesito sin exceder mi presupuesto mensual.",
+    "fecha_respuesta": "2026-11-09T11:00:38.539983+00:00"
   },
   {
     "id": "enc002",
@@ -37,6 +40,48 @@
     ],
     "objetivo": "contenido",
     "fecha": "2026-11-05T10:10:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "enc-20261109-001",
+    "tema": "Disposición a pagar por IA de contenido",
+    "pregunta": "¿Cuánto estarías dispuesto a pagar mensualmente por un servicio que genere y automatice contenido usando IA?",
+    "opciones": [
+      "$300 - $500 MXN",
+      "$501 - $800 MXN",
+      "$801 - $1200 MXN",
+      "Más de $1200 MXN"
+    ],
+    "objetivo": "pricing",
+    "fecha": "2026-11-09T10:15:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "enc-20261109-002",
+    "tema": "Sector más atractivo para IA de contenido",
+    "pregunta": "¿En qué sector consideras que la IA y la automatización de contenido aportarían mayor valor?",
+    "opciones": [
+      "E‑commerce y tiendas online",
+      "Educación y cursos digitales",
+      "Marketing digital y agencias",
+      "Salud y bienestar"
+    ],
+    "objetivo": "nicho",
+    "fecha": "2026-11-09T10:20:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "enc-20261109-003",
+    "tema": "Preferencias de formato de contenido automatizado",
+    "pregunta": "¿Cuál de los siguientes formatos de contenido automatizado prefieres recibir para tus clientes?",
+    "opciones": [
+      "Posts para redes sociales",
+      "Artículos de blog SEO",
+      "Newsletters y correos electrónicos",
+      "Guiones para videos"
+    ],
+    "objetivo": "contenido",
+    "fecha": "2026-11-09T10:25:00Z",
     "status": "pending"
   }
 ]

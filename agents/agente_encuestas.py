@@ -1,24 +1,21 @@
-from social_agents.config import GroqConfig   
-
 import json
 import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
-import os
-GROQ = type("GroqConfig", (), {"api_key": os.getenv("GROQ_API_KEY", ""), "model": "openai/gpt-oss-120b"})()   
+
+GROQ_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = "openai/gpt-oss-120b"
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from bus import init as bus_init, write as bus_write
-from social_agents.config import GroqConfig
 
 DATA_DIR = Path(__file__).parent / "data"
 ENCUESTAS_FILE = DATA_DIR / "encuestas_internas.json"
 RESULTADOS_FILE = DATA_DIR / "resultados_encuestas.json"
-
-GROQ = GroqConfig()
 
 
 def _llm_call(prompt: str) -> str:
@@ -26,13 +23,13 @@ def _llm_call(prompt: str) -> str:
     resp = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {GROQ.api_key}",
+            "Authorization": f"Bearer {GROQ_KEY}",
             "Content-Type": "application/json",
         },
         json={
-            "model": GROQ.model,
+            "model": GROQ_MODEL,
             "messages": [
-                {"role": "system", "content": "Eres un analista de mercado freelance. Responde SOLO en JSON valido, sin markdown fences."},
+                {"role": "system", "content": "Eres un analista de mercado para freelancers en Mexico."},
                 {"role": "user", "content": prompt},
             ],
             "temperature": 0.7,
@@ -101,7 +98,7 @@ def run() -> dict:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     bus_init()
     encuestas = _load_json(ENCUESTAS_FILE, [])
-    resultados = _load_json(ENCUESTAS_FILE, [])
+    resultados = _load_json(RESULTADOS_FILE, [])
 
     pendientes = [e for e in encuestas if e.get("status") == "pending"]
 
@@ -122,10 +119,52 @@ def run() -> dict:
                     propuesta="Nuevas encuestas listas para responder"
                 )
                 print(f"[encuestas] Generadas {len(nuevas)} nuevas.")
+                
         except Exception as e:
             bus_write(agent="encuestas", estado="error", problema=str(e))
             print(f"[encuestas] Error generando: {e}", file=sys.stderr)
+            # --- Contestar encuestas pendientes ---
+    if pendientes:
+        try:
+            enc_a_contestar = pendientes[0]  # una por ciclo
+            prompt_contestar = f"""
+Contesta esta encuesta como un freelancer en Mexico que compra servicios de IA:
 
+Tema: {enc_a_contestar.get('tema', '?')}
+Pregunta: {enc_a_contestar.get('pregunta', '?')}
+Opciones: {json.dumps(enc_a_contestar.get('opciones', []), ensure_ascii=False)}
+
+Responde en JSON:
+- "respuesta": string (la opción elegida o respuesta libre)
+- "comentario": string (1 frase explicando por qué)
+- "fecha": string ISO
+
+SOLO JSON.
+"""
+            raw = _llm_call(prompt_contestar)
+            respuesta = json.loads(_clean_json(raw))
+
+            # Marcar como completada
+            enc_a_contestar["status"] = "completed"
+            enc_a_contestar["respuesta"] = respuesta.get("respuesta", "")
+            enc_a_contestar["comentario"] = respuesta.get("comentario", "")
+            enc_a_contestar["fecha_respuesta"] = datetime.now(timezone.utc).isoformat()
+
+            # Guardar
+            _save_json(ENCUESTAS_FILE, encuestas)
+            resultados.append({
+                "id": enc_a_contestar["id"],
+                "respuesta": respuesta.get("respuesta", ""),
+                "comentario": respuesta.get("comentario", ""),
+                "fecha": enc_a_contestar["fecha_respuesta"],
+            })
+            _save_json(RESULTADOS_FILE, resultados)
+
+            bus_write(agent="encuestas", estado="contestada", resultado=enc_a_contestar["id"])
+            print(f"[encuestas] Contestada: {enc_a_contestar.get('tema', '?')}")
+        except Exception as e:
+            bus_write(agent="encuestas", estado="error_contestar", problema=str(e))
+            print(f"[encuestas] Error contestando: {e}", file=sys.stderr)   
     completadas = [e for e in encuestas if e.get("status") == "completed"]
 
     if len(completadas) >= 3:
@@ -159,4 +198,4 @@ def run() -> dict:
 
 if __name__ == "__main__":
     result = run()
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    print(json.dumps(result, indent=2, ensure_ascii=False))   

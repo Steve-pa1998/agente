@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+_trash/
+*.mp3
+*.webm
+*.mp4
+*.wav
+chroma.sqlite3
+cookies.txt
+.env   
