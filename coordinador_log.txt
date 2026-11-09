@@ -356,3 +356,16 @@ ImportError: cannot import name 'GroqConfig' from 'social_agents.config' (C:\Use
 [2026-11-07T19:43:18.201059+00:00] Dormindo 300s...
 [2026-11-07T19:48:19.827479+00:00] cerebro: ok (think())
 [2026-11-07T19:48:19.827861+00:00] Dormindo 300s...
+[2026-11-09T04:13:47] --- Coordinador iniciado ---
+[2026-11-09T04:13:47] --- Ejecutando: encuestas ---
+[2026-11-09T04:13:47] agente 'encuestas': ERROR No module named 'agents_'
+[2026-11-09T04:13:47] --- Ejecutando: leads ---
+[2026-11-09T04:13:47] agente 'leads': ERROR No module named 'playwright'
+[2026-11-09T04:13:47] --- Ejecutando: propuestas ---
+[2026-11-09T04:13:47] agente 'propuestas': ERROR No module named 'agents_'
+[2026-11-09T04:13:47] --- Ejecutando: optimizer ---
+[2026-11-09T04:13:47] agente 'optimizer': ERROR run_optimizer_cycle() missing 1 required positional argument: 'state'
+[2026-11-09T04:13:47] cerebro: ok (think())
+[2026-11-09T04:13:47] Durmiendo 300s...
+[2026-11-09T04:18:47] cerebro: ok (think())
+[2026-11-09T04:18:47] Durmiendo 300s...

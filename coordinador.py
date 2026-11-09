@@ -85,8 +85,11 @@ def _run_cerebro(ctx: ContextManager = None) -> None:
             mod.run()
             _log("cerebro: ok")
         elif "think" in candidates:
-            contexto = ctx.rotate() if ctx else []
-            mod.think(contexto=contexto)
+            items = ctx.rotate() if ctx else []
+            contexto_str = "\n".join(
+                f"[{m['ts']}] {m['agente']}" for m in items
+            ) if items else None
+            mod.think(contexto=contexto_str)
             _log("cerebro: ok (think())")
         elif candidates:
             func_name = candidates[0]

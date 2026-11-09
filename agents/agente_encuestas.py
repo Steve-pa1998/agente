@@ -1,4 +1,4 @@
-from __future__ import annotations
+from social_agents.config import GroqConfig   
 
 import json
 import sys
@@ -7,6 +7,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
+import os
+GROQ = type("GroqConfig", (), {"api_key": os.getenv("GROQ_API_KEY", ""), "model": "openai/gpt-oss-120b"})()   
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from bus import init as bus_init, write as bus_write

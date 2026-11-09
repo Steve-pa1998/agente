@@ -3,7 +3,7 @@ from datetime import datetime
 
 log = logging.getLogger("optimizer")
 
-def run_optimizer_cycle(state: dict) -> dict:
+def run_optimizer_cycle(state=None):   
     ts = datetime.now().isoformat(timespec="seconds")
     log.info("[optimizer] ciclo iniciado %s", ts)
     log.info("[optimizer] ciclo cerrado %s", ts)

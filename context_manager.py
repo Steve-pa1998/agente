@@ -16,4 +16,17 @@ class ContextManager:
 
     @property
     def size(self) -> int:
-        return len(self._msgs)   
+        return len(self._msgs)
+
+    def to_context(self) -> str | None:
+        if not self._msgs:
+            return None
+        lines = []
+        for m in self._msgs:
+            line = f"[{m.get('ts', '?')}] {m.get('agente', '?')}"
+            if m.get('estado'):
+                line += f" - {m['estado']}"
+            if m.get('problema'):
+                line += f" Problema: {m['problema']}"
+            lines.append(line)
+        return "\n".join(lines)   
